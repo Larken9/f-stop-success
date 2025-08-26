@@ -1,0 +1,452 @@
+[
+  {
+    "of": [
+      {
+        "marks": {
+          "annotations": [
+            {
+              "fields": [
+                {
+                  "validation": [
+                    {
+                      "rules": [
+                        {
+                          "flag": "uri",
+                          "constraint": {
+                            "options": {
+                              "scheme": [
+                                "/^http$/",
+                                "/^https$/"
+                              ],
+                              "allowRelative": false,
+                              "relativeOnly": false,
+                              "allowCredentials": false
+                            }
+                          }
+                        }
+                      ],
+                      "level": "error"
+                    }
+                  ],
+                  "name": "href",
+                  "type": "url",
+                  "title": "URL"
+                }
+              ],
+              "name": "link",
+              "type": "object",
+              "title": "URL"
+            }
+          ],
+          "decorators": [
+            {
+              "value": "strong",
+              "title": "Strong"
+            },
+            {
+              "value": "em",
+              "title": "Emphasis"
+            }
+          ]
+        },
+        "lists": [
+          {
+            "value": "bullet",
+            "title": "Bullet"
+          }
+        ],
+        "styles": [
+          {
+            "value": "normal",
+            "title": "Normal"
+          },
+          {
+            "value": "h1",
+            "title": "H1"
+          },
+          {
+            "value": "h2",
+            "title": "H2"
+          },
+          {
+            "value": "h3",
+            "title": "H3"
+          },
+          {
+            "value": "h4",
+            "title": "H4"
+          },
+          {
+            "value": "blockquote",
+            "title": "Quote"
+          }
+        ],
+        "of": [],
+        "type": "block"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "fields": [
+          {
+            "name": "alt",
+            "type": "string",
+            "title": "Alternative Text"
+          }
+        ],
+        "type": "image"
+      }
+    ],
+    "name": "blockContent",
+    "type": "array"
+  },
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string",
+        "title": "Course Title"
+      },
+      {
+        "options": {
+          "source": "title",
+          "maxLength": 96
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "title": "Course Description"
+      },
+      {
+        "to": [
+          {
+            "type": "author"
+          }
+        ],
+        "name": "instructor",
+        "type": "reference"
+      },
+      {
+        "name": "price",
+        "type": "number"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Beginner",
+              "value": "beginner"
+            },
+            {
+              "title": "Intermediate",
+              "value": "intermediate"
+            },
+            {
+              "title": "Advanced",
+              "value": "advanced"
+            }
+          ]
+        },
+        "name": "difficulty",
+        "type": "string",
+        "title": "Difficulty Level"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Portrait Photography",
+              "value": "portrait"
+            },
+            {
+              "title": "Landscape Photography",
+              "value": "landscape"
+            },
+            {
+              "title": "Technical Fundamentals",
+              "value": "technical"
+            },
+            {
+              "title": "Post-Processing",
+              "value": "editing"
+            },
+            {
+              "title": "Studio Photography",
+              "value": "studio"
+            }
+          ]
+        },
+        "name": "category",
+        "type": "string"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "featuredImage",
+        "type": "image",
+        "title": "Course Image"
+      },
+      {
+        "name": "publishedAt",
+        "type": "datetime",
+        "title": "Published at"
+      }
+    ],
+    "name": "course",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string",
+        "title": "Lesson Title"
+      },
+      {
+        "options": {
+          "source": "title",
+          "maxLength": 96
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "to": [
+          {
+            "type": "course"
+          }
+        ],
+        "name": "course",
+        "type": "reference"
+      },
+      {
+        "to": [
+          {
+            "type": "author"
+          }
+        ],
+        "name": "instructor",
+        "type": "reference"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "videoUrl",
+        "type": "url",
+        "title": "Video URL"
+      },
+      {
+        "name": "duration",
+        "type": "number",
+        "title": "Duration (minutes)"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Beginner",
+              "value": "beginner"
+            },
+            {
+              "title": "Intermediate",
+              "value": "intermediate"
+            },
+            {
+              "title": "Advanced",
+              "value": "advanced"
+            }
+          ]
+        },
+        "name": "difficulty",
+        "type": "string",
+        "title": "Difficulty Level"
+      },
+      {
+        "description": "Order of this lesson within the course",
+        "name": "order",
+        "type": "number",
+        "title": "Lesson Order"
+      },
+      {
+        "name": "content",
+        "type": "blockContent",
+        "title": "Lesson Content"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "featuredImage",
+        "type": "image"
+      },
+      {
+        "name": "publishedAt",
+        "type": "datetime",
+        "title": "Published at"
+      }
+    ],
+    "name": "lesson",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "options": {
+          "source": "name"
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "image",
+        "type": "image"
+      },
+      {
+        "of": [
+          {
+            "marks": {
+              "annotations": [
+                {
+                  "i18nTitleKey": "inputs.portable-text.annotation.link",
+                  "options": {
+                    "modal": {
+                      "type": "popover"
+                    }
+                  },
+                  "fields": [
+                    {
+                      "validation": [
+                        {
+                          "rules": [
+                            {
+                              "flag": "uri",
+                              "constraint": {
+                                "options": {
+                                  "scheme": [
+                                    "/^http$/",
+                                    "/^https$/",
+                                    "/^tel$/",
+                                    "/^mailto$/"
+                                  ],
+                                  "allowRelative": true,
+                                  "relativeOnly": false,
+                                  "allowCredentials": false
+                                }
+                              }
+                            }
+                          ],
+                          "level": "error"
+                        }
+                      ],
+                      "description": "A valid web, email, phone, or relative link.",
+                      "name": "href",
+                      "type": "url",
+                      "title": "Link"
+                    }
+                  ],
+                  "name": "link",
+                  "type": "object"
+                }
+              ],
+              "decorators": [
+                {
+                  "value": "strong",
+                  "title": "Strong"
+                },
+                {
+                  "value": "em",
+                  "title": "Italic"
+                },
+                {
+                  "value": "code",
+                  "title": "Code"
+                },
+                {
+                  "value": "underline",
+                  "title": "Underline"
+                },
+                {
+                  "value": "strike-through",
+                  "title": "Strike"
+                }
+              ]
+            },
+            "styles": [
+              {
+                "value": "normal",
+                "title": "Normal"
+              }
+            ],
+            "of": [],
+            "type": "block"
+          }
+        ],
+        "name": "bio",
+        "type": "array"
+      }
+    ],
+    "name": "author",
+    "type": "document"
+  }
+]
