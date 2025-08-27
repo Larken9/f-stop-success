@@ -6,16 +6,17 @@ export const client = createClient({
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET!,
   useCdn: false, // Set to false if statically generating pages, using ISR or tag-based revalidation
   apiVersion: "2023-05-03",
-  token: process.env.SANITY_API_TOKEN, // Only if you want to update content with the client
+  token: process.env.SANITY_API_TOKEN || undefined, // Only if you want to update content with the client
 });
 
 // Create a separate client for write operations with explicit token
+// Only use this on the server side or when token is available
 export const writeClient = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET!,
   useCdn: false,
   apiVersion: "2023-05-03",
-  token: process.env.SANITY_API_TOKEN!,
+  token: process.env.SANITY_API_TOKEN || undefined,
   ignoreBrowserTokenWarning: true, // Suppress warnings in development
 });
 
