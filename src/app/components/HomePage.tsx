@@ -27,6 +27,35 @@ export default function HomePage() {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [currentImageSet, setCurrentImageSet] = useState(0);
+
+  // Image sets data
+  const imageSets = [
+    {
+      leftImage: null, // No image, just text
+      rightImage: null, // No image, just text
+      leftText: {
+        title: "Struggling Client",
+        quote: "What do you think and feel when you read this?",
+        isTextOnly: true,
+      },
+      rightText: {
+        title: "Struggling Client",
+        quote: "What do you think and feel when you read this?",
+        isTextOnly: true,
+      },
+    },
+    {
+      leftImage: "/images/thoughts.jpg",
+      rightImage: "/images/thanksful.jpg",
+      leftText: {
+        isTextOnly: false,
+      },
+      rightText: {
+        isTextOnly: false,
+      },
+    },
+  ];
 
   const signInWithGoogle = async () => {
     try {
@@ -54,6 +83,20 @@ export default function HomePage() {
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  // Auto-rotate images every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageSet((prev) => (prev + 1) % imageSets.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [imageSets.length, currentImageSet]); // Reset timer when currentImageSet changes
+
+  // Manual rotation function
+  const manualRotate = () => {
+    setCurrentImageSet((prev) => (prev + 1) % imageSets.length);
+  };
 
   useEffect(() => {
     const setupAuthListener = async () => {
@@ -334,16 +377,15 @@ export default function HomePage() {
                   <span style={{ color: "#003027", fontWeight: "500" }}>
                     PhotoTherapy
                   </span>{" "}
-                  – where images become healing tools that speak to every
-                  client's heart.
+                  – where photographs become healing tools!
                 </p>
                 <p
                   className="text-lg leading-relaxed max-w-lg"
                   style={{ color: "#666666", fontFamily: "Inter, sans-serif" }}
                 >
-                  Learn professional techniques to increase your income, reduce
-                  burnout, and create transformative breakthroughs using the
-                  universal language of visual imagery.
+                  Learn professional techniques proven to elevate your practice
+                  increase your income, reduce burnout, and improve the outcome
+                  and overall success of your clients.
                 </p>
               </div>
 
@@ -421,7 +463,7 @@ export default function HomePage() {
                 {/* Main Image */}
                 <div className="relative overflow-hidden rounded-3xl shadow-2xl">
                   <Image
-                    src="/images/photo-1438761681033-6461ffad8d80.avif"
+                    src="/images/home-hero-new.avif"
                     alt="Professional PhotoTherapy session showcasing healing through imagery"
                     width={600}
                     height={700}
@@ -483,7 +525,7 @@ export default function HomePage() {
                 lineHeight: "1.1",
               }}
             >
-              The Power of Visual Storytelling
+              The Power of Visual Retelling
             </h2>
             <div
               className="w-24 h-0.5 mx-auto mb-8"
@@ -497,11 +539,12 @@ export default function HomePage() {
                 fontWeight: "300",
               }}
             >
-              Every image tells a story. Every photograph holds the power to
-              heal, inspire, and transform.
+              Every image tells a story and every photograph holds the power to
+              heal, inspire, and transform that story
               <span style={{ color: "#003027", fontWeight: "500" }}>
                 {" "}
-                Discover how visual therapy can revolutionize your practice.
+                What if your clients could see their thoughts for what they
+                are.. just thoughts.
               </span>
             </p>
           </div>
@@ -512,7 +555,7 @@ export default function HomePage() {
               style={{ boxShadow: "0 20px 40px rgba(0, 48, 39, 0.1)" }}
             >
               <Image
-                src="/images/photo-1438761681033-6461ffad8d80.avif"
+                src="/images/thoughts.jpg"
                 alt="Professional photography showcasing therapeutic visual techniques"
                 width={400}
                 height={500}
@@ -541,7 +584,7 @@ export default function HomePage() {
               style={{ boxShadow: "0 20px 40px rgba(0, 48, 39, 0.1)" }}
             >
               <Image
-                src="/images/photo-1470071459604-3b5ec3a7fe05.avif"
+                src="/images/thoughts2.jpg"
                 alt="Therapeutic photography demonstrating emotional expression techniques"
                 width={400}
                 height={500}
@@ -570,7 +613,7 @@ export default function HomePage() {
               style={{ boxShadow: "0 20px 40px rgba(0, 48, 39, 0.1)" }}
             >
               <Image
-                src="/images/photo-1487147264018-f937fba0c817.avif"
+                src="/images/thoughts3.jpg"
                 alt="PhotoTherapy session showing client engagement with visual materials"
                 width={400}
                 height={500}
@@ -599,7 +642,7 @@ export default function HomePage() {
               style={{ boxShadow: "0 20px 40px rgba(0, 48, 39, 0.1)" }}
             >
               <Image
-                src="/images/photo-1580489944761-15a19d654956.avif"
+                src="/images/thoughts4.jpg"
                 alt="Success story showcasing transformation through PhotoTherapy techniques"
                 width={400}
                 height={500}
@@ -651,13 +694,228 @@ export default function HomePage() {
               >
                 Images bypass the analytical mind and speak directly to our
                 emotions. In PhotoTherapy, we harness this natural connection to
-                facilitate healing, self-discovery, and growth.
+                facilitate healing, self-discovery, and personal growth.
                 <span style={{ color: "#003027", fontWeight: "500" }}>
                   {" "}
                   It&apos;s not about taking perfect photos—it&apos;s about
-                  finding perfect moments of clarity.
+                  uncovering perfect moments of clarity using photographs.
                 </span>
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Simple Rotating Images Section */}
+      <section className="py-32" style={{ backgroundColor: "#F8F9FA" }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left Side */}
+            <div className="text-center">
+              <div
+                className="relative overflow-hidden rounded-3xl shadow-xl mb-8"
+                style={{ height: "500px" }}
+              >
+                {/* Image layer - always present */}
+                <div className="absolute inset-0">
+                  <Image
+                    src={
+                      imageSets[currentImageSet].leftImage ||
+                      "/images/thoughts.jpg"
+                    }
+                    alt="Client transformation story"
+                    width={500}
+                    height={600}
+                    className="object-cover w-full h-full transition-opacity duration-1000"
+                    style={{
+                      opacity: imageSets[currentImageSet].leftText.isTextOnly
+                        ? 0.3
+                        : 1,
+                    }}
+                  />
+                </div>
+
+                {/* Text overlay - fades in/out */}
+                <div
+                  className="absolute inset-0 flex items-center justify-center transition-opacity duration-1000"
+                  style={{
+                    backgroundColor: imageSets[currentImageSet].leftText
+                      .isTextOnly
+                      ? "rgba(0, 48, 39, 0.9)"
+                      : "rgba(0, 48, 39, 0.7)",
+                    opacity: 1,
+                    pointerEvents: "auto",
+                  }}
+                >
+                  <div className="text-center px-8">
+                    <h3
+                      className="text-4xl font-light mb-6"
+                      style={{
+                        fontFamily: "Cormorant Garamond, serif",
+                        color: "white",
+                      }}
+                    >
+                      {imageSets[currentImageSet].leftText.isTextOnly
+                        ? imageSets[currentImageSet].leftText.title
+                        : "Struggling Client"}
+                    </h3>
+                    <p
+                      className="text-xl"
+                      style={{
+                        fontFamily: "Inter, sans-serif",
+                        color: "rgba(255, 255, 255, 0.9)",
+                        lineHeight: "1.6",
+                      }}
+                    >
+                      {imageSets[currentImageSet].leftText.isTextOnly
+                        ? imageSets[currentImageSet].leftText.quote
+                        : "What do you think and feel when you see this?"}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                className="text-center transition-all duration-1000"
+                style={{
+                  fontFamily: "Inter, sans-serif",
+                  color: "#666666",
+                  fontSize: "18px",
+                  lineHeight: "1.6",
+                }}
+              >
+                {!imageSets[currentImageSet].leftText.isTextOnly && (
+                  <>
+                    <div
+                      className="font-medium mb-2"
+                      style={{
+                        color: "#003027",
+                        fontFamily: "Cormorant Garamond, serif",
+                        fontSize: "24px",
+                      }}
+                    >
+                      {imageSets[currentImageSet].leftText.title}
+                    </div>
+                    <div style={{ color: "#666666" }}>
+                      {imageSets[currentImageSet].leftText.quote}
+                    </div>
+                  </>
+                )}
+              </div>
+            </div>
+
+            {/* Right Side */}
+            <div className="text-center">
+              <div
+                className="relative overflow-hidden rounded-3xl shadow-xl mb-8"
+                style={{ height: "500px" }}
+              >
+                {/* Image layer - always present */}
+                <div className="absolute inset-0">
+                  <Image
+                    src={
+                      imageSets[currentImageSet].rightImage ||
+                      "/images/thanksful.jpg"
+                    }
+                    alt="Client success story"
+                    width={500}
+                    height={600}
+                    className="object-cover w-full h-full transition-opacity duration-1000"
+                    style={{
+                      opacity: imageSets[currentImageSet].rightText.isTextOnly
+                        ? 0.3
+                        : 1,
+                    }}
+                  />
+                </div>
+
+                {/* Text overlay - fades in/out */}
+                <div
+                  className="absolute inset-0 flex items-center justify-center transition-opacity duration-1000"
+                  style={{
+                    backgroundColor: imageSets[currentImageSet].rightText
+                      .isTextOnly
+                      ? "rgba(0, 48, 39, 0.9)"
+                      : "rgba(0, 48, 39, 0.7)",
+                    opacity: 1,
+                    pointerEvents: "auto",
+                  }}
+                >
+                  <div className="text-center px-8">
+                    <h3
+                      className="text-4xl font-light mb-6"
+                      style={{
+                        fontFamily: "Cormorant Garamond, serif",
+                        color: "white",
+                      }}
+                    >
+                      {imageSets[currentImageSet].rightText.isTextOnly
+                        ? imageSets[currentImageSet].rightText.title
+                        : "Struggling Client"}
+                    </h3>
+                    <p
+                      className="text-xl"
+                      style={{
+                        fontFamily: "Inter, sans-serif",
+                        color: "rgba(255, 255, 255, 0.9)",
+                        lineHeight: "1.6",
+                      }}
+                    >
+                      {imageSets[currentImageSet].rightText.isTextOnly
+                        ? imageSets[currentImageSet].rightText.quote
+                        : "What do you think and feel when you see this?"}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                className="text-center transition-all duration-1000"
+                style={{
+                  fontFamily: "Inter, sans-serif",
+                  color: "#666666",
+                  fontSize: "18px",
+                  lineHeight: "1.6",
+                }}
+              >
+                {!imageSets[currentImageSet].rightText.isTextOnly && (
+                  <>
+                    <div
+                      className="font-medium mb-2"
+                      style={{
+                        color: "#003027",
+                        fontFamily: "Cormorant Garamond, serif",
+                        fontSize: "24px",
+                      }}
+                    >
+                      {imageSets[currentImageSet].rightText.title}
+                    </div>
+                    <div style={{ color: "#666666" }}>
+                      {imageSets[currentImageSet].rightText.quote}
+                    </div>
+                  </>
+                )}
+              </div>
+            </div>
+          </div>
+
+          {/* Manual Rotation Button */}
+          <div className="text-center mt-12">
+            {/* Indicator dots */}
+            <div className="flex justify-center space-x-2 mt-6">
+              {imageSets.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentImageSet(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    index === currentImageSet ? "scale-125" : "hover:scale-110"
+                  }`}
+                  style={{
+                    backgroundColor:
+                      index === currentImageSet ? "#003027" : "#D1D5DB",
+                  }}
+                />
+              ))}
             </div>
           </div>
         </div>
@@ -693,14 +951,202 @@ export default function HomePage() {
                 fontWeight: "300",
               }}
             >
-              Discover the universal language that speaks to all clients -
-              regardless of age, culture, or background.
+              Because PhotoTherapy allows us to see what our concerns look like
+              so we can change what they feel like.
               <span style={{ color: "#003027", fontWeight: "500" }}>
                 {" "}
-                PhotoTherapy is your golden ticket to transforming your
-                practice.
+                When we can change how they feel we can change how they impact
+                us. This is where healing resides
               </span>
             </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-12 mb-20 items-center">
+            {/* Left Column - Goals of Therapy in General */}
+            <div
+              className="p-8 rounded-3xl h-full"
+              style={{
+                backgroundColor: "#FAFAFA",
+                border: "1px solid rgba(0, 48, 39, 0.1)",
+                boxShadow: "0 10px 30px rgba(0, 48, 39, 0.05)",
+              }}
+            >
+              <h3
+                className="text-2xl font-light mb-6 text-center"
+                style={{
+                  fontFamily: "Cormorant Garamond, serif",
+                  color: "#003027",
+                }}
+              >
+                Goals of Therapy in General
+              </h3>
+              <ul className="space-y-4">
+                <li
+                  className="flex items-start"
+                  style={{
+                    color: "#666666",
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: "16px",
+                  }}
+                >
+                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-green-500 flex-shrink-0"></span>
+                  Reduce emotional distress
+                </li>
+                <li
+                  className="flex items-start"
+                  style={{
+                    color: "#666666",
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: "16px",
+                  }}
+                >
+                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-green-500 flex-shrink-0"></span>
+                  Develop healthy coping skills
+                </li>
+                <li
+                  className="flex items-start"
+                  style={{
+                    color: "#666666",
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: "16px",
+                  }}
+                >
+                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-green-500 flex-shrink-0"></span>
+                  Improve self-awareness
+                </li>
+                <li
+                  className="flex items-start"
+                  style={{
+                    color: "#666666",
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: "16px",
+                  }}
+                >
+                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-green-500 flex-shrink-0"></span>
+                  Change negative behaviors
+                </li>
+                <li
+                  className="flex items-start"
+                  style={{
+                    color: "#666666",
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: "16px",
+                  }}
+                >
+                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-green-500 flex-shrink-0"></span>
+                  Improve overall well-being & relations
+                </li>
+              </ul>
+            </div>
+
+            {/* Center Column - Image */}
+            <div className="flex justify-center">
+              <div className="relative overflow-hidden rounded-3xl shadow-xl">
+                <Image
+                  src="/images/reflection.jpg"
+                  alt="PhotoTherapy session demonstration"
+                  width={350}
+                  height={450}
+                  className="object-cover w-full h-[450px]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+              </div>
+            </div>
+
+            {/* Right Column - Goals of PhotoTherapy & This Course */}
+            <div
+              className="p-8 rounded-3xl h-full"
+              style={{
+                backgroundColor: "#003027",
+                boxShadow: "0 10px 30px rgba(0, 48, 39, 0.2)",
+              }}
+            >
+              <h3
+                className="text-2xl font-light mb-6 text-center"
+                style={{
+                  fontFamily: "Cormorant Garamond, serif",
+                  color: "white",
+                }}
+              >
+                Goals of PhotoTherapy & This Course
+              </h3>
+              <ul className="space-y-4">
+                <li
+                  className="flex items-start"
+                  style={{
+                    color: "rgba(255, 255, 255, 0.9)",
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: "16px",
+                  }}
+                >
+                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-green-400 flex-shrink-0"></span>
+                  Reduce the stress of owning a practice
+                </li>
+                <li
+                  className="flex items-start"
+                  style={{
+                    color: "rgba(255, 255, 255, 0.9)",
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: "16px",
+                  }}
+                >
+                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-green-400 flex-shrink-0"></span>
+                  Develop your skills as a therapist by adding proven theraputic
+                  techniques to your skillset
+                </li>
+                <li
+                  className="flex items-start"
+                  style={{
+                    color: "rgba(255, 255, 255, 0.9)",
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: "16px",
+                  }}
+                >
+                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-green-400 flex-shrink-0"></span>
+                  Improve client awareness for self and others
+                </li>
+                <li
+                  className="flex items-start"
+                  style={{
+                    color: "rgba(255, 255, 255, 0.9)",
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: "16px",
+                  }}
+                >
+                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-green-400 flex-shrink-0"></span>
+                  Change how clients see process and react to their experiences
+                </li>
+                <li
+                  className="flex items-start"
+                  style={{
+                    color: "rgba(255, 255, 255, 0.9)",
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: "16px",
+                  }}
+                >
+                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-green-400 flex-shrink-0"></span>
+                  Improve the overall therapeutic experience and outcome
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Benefits Section */}
+          <div className="text-center mb-16">
+            <h2
+              className="text-4xl md:text-5xl font-light mb-8"
+              style={{
+                fontFamily: "Cormorant Garamond, serif",
+                color: "#003027",
+                lineHeight: "1.1",
+              }}
+            >
+              The Benefits of PhotoTherapy
+            </h2>
+            <div
+              className="w-24 h-0.5 mx-auto mb-8"
+              style={{ backgroundColor: "#2D5A4D" }}
+            ></div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-12 mb-20">
@@ -713,16 +1159,13 @@ export default function HomePage() {
               }}
             >
               <div className="relative mb-8">
-                <div
-                  className="rounded-2xl p-6 w-24 h-24 mx-auto flex items-center justify-center transition-all duration-300"
-                  style={{
-                    backgroundColor: "#F7F5F3",
-                    border: "1px solid rgba(0, 48, 39, 0.1)",
-                  }}
-                >
-                  <Heart
-                    className="h-12 w-12 transition-transform duration-300 group-hover:scale-110"
-                    style={{ color: "#003027" }}
+                <div className="w-24 h-24 mx-auto overflow-hidden rounded-2xl transition-all duration-300 group-hover:scale-110">
+                  <Image
+                    src="/images/happyclientphoto.jpg"
+                    alt="Help More Clients"
+                    width={96}
+                    height={96}
+                    className="object-cover w-full h-full"
                   />
                 </div>
               </div>
@@ -741,7 +1184,7 @@ export default function HomePage() {
               >
                 Address all concerns with all clients using the universal
                 language of pictures. Break through barriers that traditional
-                therapy can&apos;t reach.
+                therapy cannot reach.
               </p>
             </div>
 
@@ -754,16 +1197,13 @@ export default function HomePage() {
               }}
             >
               <div className="relative mb-8">
-                <div
-                  className="rounded-2xl p-6 w-24 h-24 mx-auto flex items-center justify-center transition-all duration-300"
-                  style={{
-                    backgroundColor: "#F7F5F3",
-                    border: "1px solid rgba(0, 48, 39, 0.1)",
-                  }}
-                >
-                  <Award
-                    className="h-12 w-12 transition-transform duration-300 group-hover:scale-110"
-                    style={{ color: "#003027" }}
+                <div className="w-24 h-24 mx-auto overflow-hidden rounded-2xl transition-all duration-300 group-hover:scale-110">
+                  <Image
+                    src="/images/mortgage-concept.webp"
+                    alt="Increase Your Income"
+                    width={96}
+                    height={96}
+                    className="object-cover w-full h-full"
                   />
                 </div>
               </div>
@@ -780,7 +1220,8 @@ export default function HomePage() {
                 className="leading-relaxed"
                 style={{ color: "#666666", fontFamily: "Inter, sans-serif" }}
               >
-                TEST TEST TEST &apos;TEST TEST TEST
+                The power of a clients success is the foundation for a practice
+                remuneration
               </p>
             </div>
 
@@ -793,16 +1234,13 @@ export default function HomePage() {
               }}
             >
               <div className="relative mb-8">
-                <div
-                  className="rounded-2xl p-6 w-24 h-24 mx-auto flex items-center justify-center transition-all duration-300"
-                  style={{
-                    backgroundColor: "#F7F5F3",
-                    border: "1px solid rgba(0, 48, 39, 0.1)",
-                  }}
-                >
-                  <Users
-                    className="h-12 w-12 transition-transform duration-300 group-hover:scale-110"
-                    style={{ color: "#003027" }}
+                <div className="w-24 h-24 mx-auto overflow-hidden rounded-2xl transition-all duration-300 group-hover:scale-110">
+                  <Image
+                    src="/images/happytherapist.webp"
+                    alt="Reduce Burnout"
+                    width={96}
+                    height={96}
+                    className="object-cover w-full h-full"
                   />
                 </div>
               </div>
@@ -820,7 +1258,7 @@ export default function HomePage() {
                 style={{ color: "#666666", fontFamily: "Inter, sans-serif" }}
               >
                 Work smarter, not harder. Set your own hours, see clients online
-                from home, and design the freedom you want.
+                from home, and design the freedom and the practice you want.
               </p>
             </div>
           </div>
@@ -855,8 +1293,9 @@ export default function HomePage() {
                     fontFamily: "Inter, sans-serif",
                   }}
                 >
-                  Pictures speak to everyone, regardless of age, culture, or
-                  verbal ability.
+                  Pictures speak to everyone, regardless of race, culture, age,
+                  gender, or verbal ability. The impact of an image or
+                  photograph needs no words
                 </p>
               </div>
               <div
@@ -878,8 +1317,10 @@ export default function HomePage() {
                     fontFamily: "Inter, sans-serif",
                   }}
                 >
-                  Photographs help clients access memories and feelings they
-                  couldn't express in words.
+                  Photographs help clients access memories and feelings that
+                  might otherwise have gone unnotices. Its the noticing that
+                  leads to awareness, self-compassion, and understanding for
+                  change
                 </p>
               </div>
               <div
@@ -901,8 +1342,8 @@ export default function HomePage() {
                     fontFamily: "Inter, sans-serif",
                   }}
                 >
-                  Images communicate symbolically, making therapy more
-                  accessible and effective.
+                  Images communicate symbolically, making therapy less intrusive
+                  and more effective.
                 </p>
               </div>
               <div
@@ -925,7 +1366,9 @@ export default function HomePage() {
                   }}
                 >
                   Not just for clients - transform your own life while becoming
-                  a better therapist.
+                  a better therapist. A great therapist grows out of a deep
+                  commitment to ongoing learning and personal growth. The Visual
+                  path is paved with positive outcomes
                 </p>
               </div>
             </div>
@@ -960,16 +1403,25 @@ export default function HomePage() {
                   Kelly Gauthier
                 </h3>
                 <p className="text-gray-600 mb-4">
-                  Kelly has walked in your shoes. After graduating with honors
-                  in Photography, she faced the same struggles many mental
-                  health professionals face today - burnout, financial stress,
-                  and the challenge of truly connecting with all clients.
+                  Kelly has walked in your shoes and faced the same challenges
+                  you have. After graduating with an honours BA in Photography,
+                  Kelly set out to change the world visually, only to encounter
+                  one roadblock after another. Between the financial stresses
+                  that came with owning her own business, to the long hours
+                  worked just to try and make ends meet, to a real lack of
+                  connection and fulfillment from and with her clients. It
+                  wasn’t until a bad bike accident rendered Kelly unable to
+                  continue running Camp Camera that she turned to photographs
+                  and photography for her own recovery and healing.
                 </p>
                 <p className="text-gray-600 mb-4">
-                  Through her journey from failed photography businesses to
-                  discovering PhotoTherapy, Kelly found her calling. She now
-                  operates a highly successful PhotoTherapy practice, earning a
-                  6-figure income while working from home on her own terms.
+                  It was through this experience that Kelly found her calling!
+                  She is now a Registered Art Therapist operating a highly
+                  successful PhotoTherapy based practice, earning a 6-figure
+                  income, and offering her colleagues and mental health workers
+                  the same opportunity to learn the ins and outs of PhotoTherapy
+                  to positively impact their practices, their client outcomes,
+                  and their own lives and financial independence.
                 </p>
                 <div className="flex items-center gap-4">
                   <div className="text-center">
@@ -1001,8 +1453,8 @@ export default function HomePage() {
               <blockquote className="text-gray-700 italic">
                 "For you to become the best at what you do, you need to be the
                 best at who you are first. You need to walk your PhotoTherapy
-                talk! The great therapists have done the work they're asking
-                their clients to do."
+                talk! The greatest of therapists have done the work they're
+                asking their clients to do."
               </blockquote>
             </div>
           </div>
@@ -1051,9 +1503,9 @@ export default function HomePage() {
               12-Week Transformation Program
             </h3>
             <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-              Designed for busy professionals - each module takes just 3-4 hours
-              per week. You'll have lifetime access plus ongoing support through
-              our community.
+              Designed for mental health professionals and practitioners looking
+              to improve - each module takes just 3-4 hours per week. You'll
+              have lifetime access plus ongoing support through our community.
             </p>
             <div className="grid md:grid-cols-3 gap-6">
               <div>
