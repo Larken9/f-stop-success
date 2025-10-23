@@ -28,6 +28,8 @@ export default function HomePage() {
   const [loading, setLoading] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [currentImageSet, setCurrentImageSet] = useState(0);
+  const [revealedImage1, setRevealedImage1] = useState(false);
+  const [revealedImage2, setRevealedImage2] = useState(false);
 
   // Image sets data
   const imageSets = [
@@ -40,7 +42,7 @@ export default function HomePage() {
         isTextOnly: true,
       },
       rightText: {
-        title: "Struggling Client",
+        title: "A Grateful client",
         quote: "What do you think and feel when you read this?",
         isTextOnly: true,
       },
@@ -176,6 +178,17 @@ export default function HomePage() {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-10">
               <a
+                href="/"
+                className="transition-all duration-300 font-medium relative group"
+                style={{ color: "#666666", fontFamily: "Inter, sans-serif" }}
+              >
+                Home
+                <span
+                  className="absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full"
+                  style={{ backgroundColor: "#1a1a1a" }}
+                ></span>
+              </a>
+              <a
                 href="#about"
                 className="transition-all duration-300 font-medium relative group"
                 style={{ color: "#666666", fontFamily: "Inter, sans-serif" }}
@@ -187,11 +200,11 @@ export default function HomePage() {
                 ></span>
               </a>
               <a
-                href="#course"
+                href="/enroll"
                 className="transition-all duration-300 font-medium relative group"
                 style={{ color: "#666666", fontFamily: "Inter, sans-serif" }}
               >
-                Course
+                Enroll
                 <span
                   className="absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full"
                   style={{ backgroundColor: "#1a1a1a" }}
@@ -283,16 +296,22 @@ export default function HomePage() {
             <div className="md:hidden py-4 border-t border-slate-200/50 bg-white/95 backdrop-blur-md">
               <div className="flex flex-col space-y-3">
                 <a
+                  href="/"
+                  className="text-slate-600 hover:text-sky-600 transition-colors px-3 py-2 rounded-lg hover:bg-slate-50"
+                >
+                  Home
+                </a>
+                <a
                   href="#about"
                   className="text-slate-600 hover:text-sky-600 transition-colors px-3 py-2 rounded-lg hover:bg-slate-50"
                 >
                   About
                 </a>
                 <a
-                  href="#course"
+                  href="/enroll"
                   className="text-slate-600 hover:text-sky-600 transition-colors px-3 py-2 rounded-lg hover:bg-slate-50"
                 >
-                  Course
+                  Enroll
                 </a>
                 <a
                   href="#instructor"
@@ -340,26 +359,25 @@ export default function HomePage() {
       </nav>
 
       {/* Hero Section */}
-      <div className="relative pt-40 pb-32 overflow-hidden">
+      <div className="relative pt-28 pb-20 overflow-hidden">
         <div className="relative max-w-6xl mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left Column - Content */}
-            <div className="space-y-8">
+            <div className="space-y-6">
               {/* Main Heading */}
               <h1
-                className="text-5xl md:text-6xl lg:text-7xl font-light leading-tight animate-fade-in"
+                className="text-3xl md:text-4xl lg:text-5xl font-light leading-tight animate-fade-in"
                 style={{
                   fontFamily: "Cormorant Garamond, serif",
                   color: "#1a1a1a",
                 }}
               >
-                Transform Your
-                <span className="block font-medium">Mental Health</span>
-                <span
-                  className="block font-medium"
-                  style={{ color: "#2D5A4D" }}
-                >
-                  Practice
+                <span className="block">Transform Your</span>
+                <span className="block font-medium">
+                  Mental Health Practice
+                </span>
+                <span className="block" style={{ color: "#4B5563" }}>
+                  for both you and your clients
                 </span>
               </h1>
 
@@ -374,7 +392,7 @@ export default function HomePage() {
                   }}
                 >
                   Discover the power of{" "}
-                  <span style={{ color: "#003027", fontWeight: "500" }}>
+                  <span style={{ color: "#374151", fontWeight: "500" }}>
                     PhotoTherapy
                   </span>{" "}
                   – where photographs become healing tools!
@@ -391,37 +409,22 @@ export default function HomePage() {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
-                {user ? (
-                  <a
-                    href="/dashboard"
-                    className="text-white px-8 py-4 rounded-2xl font-semibold transition-all duration-300 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl hover:scale-105"
-                    style={{
-                      background:
-                        "linear-gradient(135deg, #1a1a1a 0%, #333333 100%)",
-                      fontFamily: "Inter, sans-serif",
-                    }}
-                  >
-                    <BookOpen className="h-5 w-5" />
-                    Continue Learning
-                  </a>
-                ) : (
-                  <button
-                    onClick={signInWithGoogle}
-                    className="text-white px-8 py-4 rounded-2xl font-semibold transition-all duration-300 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl hover:scale-105"
-                    style={{
-                      background:
-                        "linear-gradient(135deg, #1a1a1a 0%, #333333 100%)",
-                      fontFamily: "Inter, sans-serif",
-                    }}
-                  >
-                    <LogIn className="h-5 w-5" />
-                    Start Your Journey
-                  </button>
-                )}
+                <a
+                  href="/enroll"
+                  className="text-white px-8 py-4 rounded-2xl font-semibold transition-all duration-300 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl hover:scale-105"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, #1a1a1a 0%, #333333 100%)",
+                    fontFamily: "Inter, sans-serif",
+                  }}
+                >
+                  <BookOpen className="h-5 w-5" />
+                  {user ? "Continue Learning" : "Enroll Now"}
+                </a>
                 <button
                   className="border-2 px-8 py-4 rounded-2xl font-semibold transition-all duration-300 flex items-center justify-center gap-3 hover:scale-105 bg-white/50 backdrop-blur-sm"
                   style={{
-                    borderColor: "#003027",
+                    borderColor: "#6B7280",
                     color: "#1a1a1a",
                     fontFamily: "Inter, sans-serif",
                   }}
@@ -439,7 +442,7 @@ export default function HomePage() {
                   >
                     <div
                       className="w-2 h-2 rounded-full animate-pulse"
-                      style={{ backgroundColor: "#22C55E" }}
+                      style={{ backgroundColor: "#9CA3AF" }}
                     ></div>
                     <p
                       style={{
@@ -448,7 +451,7 @@ export default function HomePage() {
                       }}
                     >
                       Welcome back,{" "}
-                      <span style={{ fontWeight: "600", color: "#003027" }}>
+                      <span style={{ fontWeight: "600", color: "#374151" }}>
                         {user.displayName}
                       </span>
                     </p>
@@ -521,7 +524,7 @@ export default function HomePage() {
               className="text-5xl md:text-6xl font-light mb-8 animate-fade-in"
               style={{
                 fontFamily: "Cormorant Garamond, serif",
-                color: "#003027",
+                color: "#374151",
                 lineHeight: "1.1",
               }}
             >
@@ -529,7 +532,7 @@ export default function HomePage() {
             </h2>
             <div
               className="w-24 h-0.5 mx-auto mb-8"
-              style={{ backgroundColor: "#2D5A4D" }}
+              style={{ backgroundColor: "#6B7280" }}
             ></div>
             <p
               className="text-xl max-w-4xl mx-auto leading-relaxed"
@@ -540,12 +543,24 @@ export default function HomePage() {
               }}
             >
               Every image tells a story and every photograph holds the power to
-              heal, inspire, and transform that story
-              <span style={{ color: "#003027", fontWeight: "500" }}>
-                {" "}
-                What if your clients could see their thoughts for what they
-                are.. just thoughts.
+              heal, inspire, and transform that story.{" "}
+              <span style={{ color: "#374151", fontWeight: "500" }}>
+                Discover how visual therapy can revolutionize your practice.
               </span>
+            </p>
+          </div>
+
+          <div className="text-center mb-12">
+            <p
+              className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed"
+              style={{
+                color: "#374151",
+                fontFamily: "Inter, sans-serif",
+                fontWeight: "500",
+              }}
+            >
+              What if your clients could see their thoughts for what they are..
+              just thoughts.
             </p>
           </div>
 
@@ -667,6 +682,20 @@ export default function HomePage() {
             </div>
           </div>
 
+          <div className="text-center mt-12 mb-20">
+            <p
+              className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed"
+              style={{
+                color: "#374151",
+                fontFamily: "Inter, sans-serif",
+                fontWeight: "500",
+              }}
+            >
+              and not the cognitive distortions or manifestations of anxiety we
+              too often make them out to be.
+            </p>
+          </div>
+
           <div className="text-center">
             <div
               className="rounded-3xl p-12 max-w-5xl mx-auto"
@@ -695,7 +724,7 @@ export default function HomePage() {
                 Images bypass the analytical mind and speak directly to our
                 emotions. In PhotoTherapy, we harness this natural connection to
                 facilitate healing, self-discovery, and personal growth.
-                <span style={{ color: "#003027", fontWeight: "500" }}>
+                <span style={{ color: "#374151", fontWeight: "500" }}>
                   {" "}
                   It&apos;s not about taking perfect photos—it&apos;s about
                   uncovering perfect moments of clarity using photographs.
@@ -706,217 +735,117 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Simple Rotating Images Section */}
+      {/* 4-Block Image Reveal Section */}
       <section className="py-32" style={{ backgroundColor: "#F8F9FA" }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left Side */}
-            <div className="text-center">
-              <div
-                className="relative overflow-hidden rounded-3xl shadow-xl mb-8"
-                style={{ height: "500px" }}
-              >
-                {/* Image layer - always present */}
-                <div className="absolute inset-0">
-                  <Image
-                    src={
-                      imageSets[currentImageSet].leftImage ||
-                      "/images/thoughts.jpg"
-                    }
-                    alt="Client transformation story"
-                    width={500}
-                    height={600}
-                    className="object-cover w-full h-full transition-opacity duration-1000"
-                    style={{
-                      opacity: imageSets[currentImageSet].leftText.isTextOnly
-                        ? 0.3
-                        : 1,
-                    }}
-                  />
-                </div>
-
-                {/* Text overlay - fades in/out */}
-                <div
-                  className="absolute inset-0 flex items-center justify-center transition-opacity duration-1000"
-                  style={{
-                    backgroundColor: imageSets[currentImageSet].leftText
-                      .isTextOnly
-                      ? "rgba(0, 48, 39, 0.9)"
-                      : "rgba(0, 48, 39, 0.7)",
-                    opacity: 1,
-                    pointerEvents: "auto",
-                  }}
-                >
-                  <div className="text-center px-8">
-                    <h3
-                      className="text-4xl font-light mb-6"
-                      style={{
-                        fontFamily: "Cormorant Garamond, serif",
-                        color: "white",
-                      }}
-                    >
-                      {imageSets[currentImageSet].leftText.isTextOnly
-                        ? imageSets[currentImageSet].leftText.title
-                        : "Struggling Client"}
-                    </h3>
-                    <p
-                      className="text-xl"
-                      style={{
-                        fontFamily: "Inter, sans-serif",
-                        color: "rgba(255, 255, 255, 0.9)",
-                        lineHeight: "1.6",
-                      }}
-                    >
-                      {imageSets[currentImageSet].leftText.isTextOnly
-                        ? imageSets[currentImageSet].leftText.quote
-                        : "What do you think and feel when you see this?"}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div
-                className="text-center transition-all duration-1000"
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Block 1: Struggling Client Text */}
+            <div
+              className="rounded-2xl shadow-lg p-6 flex flex-col items-center justify-center text-center aspect-square"
+              style={{
+                backgroundColor: "#374151",
+              }}
+            >
+              <h3
+                className="text-2xl md:text-3xl font-light mb-3"
                 style={{
-                  fontFamily: "Inter, sans-serif",
-                  color: "#666666",
-                  fontSize: "18px",
-                  lineHeight: "1.6",
+                  fontFamily: "Cormorant Garamond, serif",
+                  color: "white",
                 }}
               >
-                {!imageSets[currentImageSet].leftText.isTextOnly && (
-                  <>
-                    <div
-                      className="font-medium mb-2"
-                      style={{
-                        color: "#003027",
-                        fontFamily: "Cormorant Garamond, serif",
-                        fontSize: "24px",
-                      }}
-                    >
-                      {imageSets[currentImageSet].leftText.title}
-                    </div>
-                    <div style={{ color: "#666666" }}>
-                      {imageSets[currentImageSet].leftText.quote}
-                    </div>
-                  </>
-                )}
-              </div>
-            </div>
-
-            {/* Right Side */}
-            <div className="text-center">
-              <div
-                className="relative overflow-hidden rounded-3xl shadow-xl mb-8"
-                style={{ height: "500px" }}
-              >
-                {/* Image layer - always present */}
-                <div className="absolute inset-0">
-                  <Image
-                    src={
-                      imageSets[currentImageSet].rightImage ||
-                      "/images/thanksful.jpg"
-                    }
-                    alt="Client success story"
-                    width={500}
-                    height={600}
-                    className="object-cover w-full h-full transition-opacity duration-1000"
-                    style={{
-                      opacity: imageSets[currentImageSet].rightText.isTextOnly
-                        ? 0.3
-                        : 1,
-                    }}
-                  />
-                </div>
-
-                {/* Text overlay - fades in/out */}
-                <div
-                  className="absolute inset-0 flex items-center justify-center transition-opacity duration-1000"
-                  style={{
-                    backgroundColor: imageSets[currentImageSet].rightText
-                      .isTextOnly
-                      ? "rgba(0, 48, 39, 0.9)"
-                      : "rgba(0, 48, 39, 0.7)",
-                    opacity: 1,
-                    pointerEvents: "auto",
-                  }}
-                >
-                  <div className="text-center px-8">
-                    <h3
-                      className="text-4xl font-light mb-6"
-                      style={{
-                        fontFamily: "Cormorant Garamond, serif",
-                        color: "white",
-                      }}
-                    >
-                      {imageSets[currentImageSet].rightText.isTextOnly
-                        ? imageSets[currentImageSet].rightText.title
-                        : "Struggling Client"}
-                    </h3>
-                    <p
-                      className="text-xl"
-                      style={{
-                        fontFamily: "Inter, sans-serif",
-                        color: "rgba(255, 255, 255, 0.9)",
-                        lineHeight: "1.6",
-                      }}
-                    >
-                      {imageSets[currentImageSet].rightText.isTextOnly
-                        ? imageSets[currentImageSet].rightText.quote
-                        : "What do you think and feel when you see this?"}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div
-                className="text-center transition-all duration-1000"
+                Struggling Client
+              </h3>
+              <p
+                className="text-base md:text-lg"
                 style={{
                   fontFamily: "Inter, sans-serif",
-                  color: "#666666",
-                  fontSize: "18px",
-                  lineHeight: "1.6",
+                  color: "rgba(255, 255, 255, 0.9)",
                 }}
               >
-                {!imageSets[currentImageSet].rightText.isTextOnly && (
-                  <>
-                    <div
-                      className="font-medium mb-2"
-                      style={{
-                        color: "#003027",
-                        fontFamily: "Cormorant Garamond, serif",
-                        fontSize: "24px",
-                      }}
-                    >
-                      {imageSets[currentImageSet].rightText.title}
-                    </div>
-                    <div style={{ color: "#666666" }}>
-                      {imageSets[currentImageSet].rightText.quote}
-                    </div>
-                  </>
-                )}
-              </div>
+                What do you think and feel when you read this?
+              </p>
             </div>
-          </div>
 
-          {/* Manual Rotation Button */}
-          <div className="text-center mt-12">
-            {/* Indicator dots */}
-            <div className="flex justify-center space-x-2 mt-6">
-              {imageSets.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentImageSet(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === currentImageSet ? "scale-125" : "hover:scale-110"
-                  }`}
-                  style={{
-                    backgroundColor:
-                      index === currentImageSet ? "#003027" : "#D1D5DB",
-                  }}
+            {/* Block 2: Struggling Client Image */}
+            <button
+              onClick={() => setRevealedImage1(!revealedImage1)}
+              className="rounded-2xl shadow-lg overflow-hidden relative cursor-pointer hover:shadow-xl transition-shadow aspect-square"
+            >
+              {!revealedImage1 ? (
+                <div
+                  className="absolute inset-0 flex items-center justify-center hover:bg-opacity-90 transition-all"
+                  style={{ backgroundColor: "#374151" }}
+                >
+                  <span
+                    className="text-white text-lg md:text-xl font-medium"
+                    style={{ fontFamily: "Inter, sans-serif" }}
+                  >
+                    Click to Reveal
+                  </span>
+                </div>
+              ) : (
+                <Image
+                  src="/images/thoughts.jpg"
+                  alt="Struggling client visualization"
+                  fill
+                  className="object-cover"
                 />
-              ))}
+              )}
+            </button>
+
+            {/* Block 3: Grateful Client Text */}
+            <div
+              className="rounded-2xl shadow-lg p-6 flex flex-col items-center justify-center text-center aspect-square"
+              style={{
+                backgroundColor: "#374151",
+              }}
+            >
+              <h3
+                className="text-2xl md:text-3xl font-light mb-3"
+                style={{
+                  fontFamily: "Cormorant Garamond, serif",
+                  color: "white",
+                }}
+              >
+                A Grateful Client
+              </h3>
+              <p
+                className="text-base md:text-lg"
+                style={{
+                  fontFamily: "Inter, sans-serif",
+                  color: "rgba(255, 255, 255, 0.9)",
+                }}
+              >
+                What do you think and feel when you read this?
+              </p>
             </div>
+
+            {/* Block 4: Grateful Client Image */}
+            <button
+              onClick={() => setRevealedImage2(!revealedImage2)}
+              className="rounded-2xl shadow-lg overflow-hidden relative cursor-pointer hover:shadow-xl transition-shadow aspect-square"
+            >
+              {!revealedImage2 ? (
+                <div
+                  className="absolute inset-0 flex items-center justify-center hover:bg-opacity-90 transition-all"
+                  style={{ backgroundColor: "#374151" }}
+                >
+                  <span
+                    className="text-white text-lg md:text-xl font-medium"
+                    style={{ fontFamily: "Inter, sans-serif" }}
+                  >
+                    Click to Reveal
+                  </span>
+                </div>
+              ) : (
+                <Image
+                  src="/images/thanksful.jpg"
+                  alt="Grateful client visualization"
+                  fill
+                  className="object-cover"
+                />
+              )}
+            </button>
           </div>
         </div>
       </section>
@@ -933,7 +862,7 @@ export default function HomePage() {
               className="text-5xl md:text-6xl font-light mb-8 animate-fade-in"
               style={{
                 fontFamily: "Cormorant Garamond, serif",
-                color: "#003027",
+                color: "#374151",
                 lineHeight: "1.1",
               }}
             >
@@ -941,10 +870,10 @@ export default function HomePage() {
             </h2>
             <div
               className="w-24 h-0.5 mx-auto mb-8"
-              style={{ backgroundColor: "#2D5A4D" }}
+              style={{ backgroundColor: "#6B7280" }}
             ></div>
             <p
-              className="text-xl md:text-2xl max-w-5xl mx-auto leading-relaxed"
+              className="text-xl md:text-2xl max-w-6xl mx-auto leading-relaxed"
               style={{
                 color: "#666666",
                 fontFamily: "Inter, sans-serif",
@@ -953,10 +882,11 @@ export default function HomePage() {
             >
               Because PhotoTherapy allows us to see what our concerns look like
               so we can change what they feel like.
-              <span style={{ color: "#003027", fontWeight: "500" }}>
+              <span style={{ color: "#374151", fontWeight: "500" }}>
                 {" "}
                 When we can change how they feel we can change how they impact
-                us. This is where healing resides
+                us. <br />
+                This is where healing resides.
               </span>
             </p>
           </div>
@@ -964,23 +894,23 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-12 mb-20 items-center">
             {/* Left Column - Goals of Therapy in General */}
             <div
-              className="p-8 rounded-3xl h-full"
+              className="p-6 rounded-3xl h-full flex flex-col justify-center"
               style={{
-                backgroundColor: "#FAFAFA",
+                backgroundColor: "#F3F4F6",
                 border: "1px solid rgba(0, 48, 39, 0.1)",
-                boxShadow: "0 10px 30px rgba(0, 48, 39, 0.05)",
+                boxShadow: "0 10px 30px rgba(0, 48, 39, 0.08)",
               }}
             >
               <h3
-                className="text-2xl font-light mb-6 text-center"
+                className="text-2xl font-light mb-4 text-center"
                 style={{
                   fontFamily: "Cormorant Garamond, serif",
-                  color: "#003027",
+                  color: "#374151",
                 }}
               >
                 Goals of Therapy in General
               </h3>
-              <ul className="space-y-4">
+              <ul className="space-y-3">
                 <li
                   className="flex items-start"
                   style={{
@@ -989,7 +919,7 @@ export default function HomePage() {
                     fontSize: "16px",
                   }}
                 >
-                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-green-500 flex-shrink-0"></span>
+                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span>
                   Reduce emotional distress
                 </li>
                 <li
@@ -1000,7 +930,7 @@ export default function HomePage() {
                     fontSize: "16px",
                   }}
                 >
-                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-green-500 flex-shrink-0"></span>
+                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span>
                   Develop healthy coping skills
                 </li>
                 <li
@@ -1011,7 +941,7 @@ export default function HomePage() {
                     fontSize: "16px",
                   }}
                 >
-                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-green-500 flex-shrink-0"></span>
+                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span>
                   Improve self-awareness
                 </li>
                 <li
@@ -1022,7 +952,7 @@ export default function HomePage() {
                     fontSize: "16px",
                   }}
                 >
-                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-green-500 flex-shrink-0"></span>
+                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span>
                   Change negative behaviors
                 </li>
                 <li
@@ -1033,36 +963,34 @@ export default function HomePage() {
                     fontSize: "16px",
                   }}
                 >
-                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-green-500 flex-shrink-0"></span>
+                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span>
                   Improve overall well-being & relations
                 </li>
               </ul>
             </div>
 
             {/* Center Column - Image */}
-            <div className="flex justify-center">
-              <div className="relative overflow-hidden rounded-3xl shadow-xl">
-                <Image
-                  src="/images/reflection.jpg"
-                  alt="PhotoTherapy session demonstration"
-                  width={350}
-                  height={450}
-                  className="object-cover w-full h-[450px]"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-              </div>
+            <div className="relative overflow-hidden rounded-3xl shadow-xl h-full">
+              <Image
+                src="/images/reflection.jpg"
+                alt="PhotoTherapy session demonstration"
+                width={400}
+                height={600}
+                className="object-cover w-full h-full"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
             </div>
 
             {/* Right Column - Goals of PhotoTherapy & This Course */}
             <div
-              className="p-8 rounded-3xl h-full"
+              className="p-6 rounded-3xl h-full flex flex-col justify-center"
               style={{
-                backgroundColor: "#003027",
-                boxShadow: "0 10px 30px rgba(0, 48, 39, 0.2)",
+                backgroundColor: "#374151",
+                boxShadow: "0 10px 30px rgba(55, 65, 81, 0.2)",
               }}
             >
               <h3
-                className="text-2xl font-light mb-6 text-center"
+                className="text-2xl font-light mb-4 text-center"
                 style={{
                   fontFamily: "Cormorant Garamond, serif",
                   color: "white",
@@ -1070,7 +998,7 @@ export default function HomePage() {
               >
                 Goals of PhotoTherapy & This Course
               </h3>
-              <ul className="space-y-4">
+              <ul className="space-y-3">
                 <li
                   className="flex items-start"
                   style={{
@@ -1079,7 +1007,7 @@ export default function HomePage() {
                     fontSize: "16px",
                   }}
                 >
-                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-green-400 flex-shrink-0"></span>
+                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-gray-300 flex-shrink-0"></span>
                   Reduce the stress of owning a practice
                 </li>
                 <li
@@ -1090,7 +1018,7 @@ export default function HomePage() {
                     fontSize: "16px",
                   }}
                 >
-                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-green-400 flex-shrink-0"></span>
+                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-gray-300 flex-shrink-0"></span>
                   Develop your skills as a therapist by adding proven theraputic
                   techniques to your skillset
                 </li>
@@ -1102,7 +1030,7 @@ export default function HomePage() {
                     fontSize: "16px",
                   }}
                 >
-                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-green-400 flex-shrink-0"></span>
+                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-gray-300 flex-shrink-0"></span>
                   Improve client awareness for self and others
                 </li>
                 <li
@@ -1113,7 +1041,7 @@ export default function HomePage() {
                     fontSize: "16px",
                   }}
                 >
-                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-green-400 flex-shrink-0"></span>
+                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-gray-300 flex-shrink-0"></span>
                   Change how clients see process and react to their experiences
                 </li>
                 <li
@@ -1124,10 +1052,224 @@ export default function HomePage() {
                     fontSize: "16px",
                   }}
                 >
-                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-green-400 flex-shrink-0"></span>
+                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-gray-300 flex-shrink-0"></span>
                   Improve the overall therapeutic experience and outcome
                 </li>
               </ul>
+            </div>
+          </div>
+
+          {/* Just Picture It Section */}
+          <div className="mb-32">
+            <div className="text-center mb-16">
+              <h2
+                className="text-4xl md:text-5xl font-light mb-8"
+                style={{
+                  fontFamily: "Cormorant Garamond, serif",
+                  color: "#374151",
+                  lineHeight: "1.1",
+                }}
+              >
+                Just Picture It!
+              </h2>
+              <p
+                className="text-xl max-w-3xl mx-auto"
+                style={{
+                  color: "#666666",
+                  fontFamily: "Inter, sans-serif",
+                  fontWeight: "300",
+                }}
+              >
+                How photographs can transform your practice and your clients&apos; lives
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+              {/* Polaroid 1 */}
+              <div
+                className="bg-white p-4 pb-16 shadow-2xl transform hover:scale-105 hover:-rotate-1 transition-all duration-300"
+                style={{
+                  boxShadow: "0 20px 40px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 0, 0, 0.1)",
+                  transform: "rotate(-1deg)"
+                }}
+              >
+                <div className="bg-gray-100 mb-4 overflow-hidden h-64 flex items-center justify-center">
+                  <Image
+                    src="/images/thoughts.jpg"
+                    alt="Revisualize positive outcomes"
+                    width={300}
+                    height={256}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+                <p
+                  className="text-center leading-relaxed px-2"
+                  style={{
+                    color: "#374151",
+                    fontFamily: "Permanent Marker, cursive",
+                    fontSize: "13px",
+                  }}
+                >
+                  Helping your clients become more aware of inaccurate and
+                  harmful ways of thinking by showing them how to revisualize
+                  positive outcomes.
+                </p>
+              </div>
+
+              {/* Polaroid 2 */}
+              <div
+                className="bg-white p-4 pb-16 shadow-2xl transform hover:scale-105 hover:rotate-1 transition-all duration-300"
+                style={{
+                  boxShadow: "0 20px 40px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 0, 0, 0.1)",
+                  transform: "rotate(1deg)"
+                }}
+              >
+                <div className="bg-gray-100 mb-4 overflow-hidden h-64 flex items-center justify-center">
+                  <Image
+                    src="/images/thoughts2.jpg"
+                    alt="Foster positive behaviour change"
+                    width={300}
+                    height={256}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+                <p
+                  className="text-center leading-relaxed px-2"
+                  style={{
+                    color: "#374151",
+                    fontFamily: "Permanent Marker, cursive",
+                    fontSize: "13px",
+                  }}
+                >
+                  Helping your clients foster positive behaviour change and
+                  personal growth by helping them &apos;see&apos; how cognitive
+                  distortions cause negative actions and reactions.
+                </p>
+              </div>
+
+              {/* Polaroid 3 */}
+              <div
+                className="bg-white p-4 pb-16 shadow-2xl transform hover:scale-105 hover:-rotate-1 transition-all duration-300"
+                style={{
+                  boxShadow: "0 20px 40px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 0, 0, 0.1)",
+                  transform: "rotate(-0.5deg)"
+                }}
+              >
+                <div className="bg-gray-100 mb-4 overflow-hidden h-64 flex items-center justify-center">
+                  <Image
+                    src="/images/thoughts3.jpg"
+                    alt="Improve success stories"
+                    width={300}
+                    height={256}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+                <p
+                  className="text-center leading-relaxed px-2"
+                  style={{
+                    color: "#374151",
+                    fontFamily: "Permanent Marker, cursive",
+                    fontSize: "13px",
+                  }}
+                >
+                  Help your clients improve their own success stories by
+                  showing them how retelling a story visually can uncover the
+                  obstacles keeping them stuck and put them on the road to a
+                  changed and fulfilling life.
+                </p>
+              </div>
+
+              {/* Polaroid 4 */}
+              <div
+                className="bg-white p-4 pb-16 shadow-2xl transform hover:scale-105 hover:rotate-1 transition-all duration-300"
+                style={{
+                  boxShadow: "0 20px 40px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 0, 0, 0.1)",
+                  transform: "rotate(0.5deg)"
+                }}
+              >
+                <div className="bg-gray-100 mb-4 overflow-hidden h-64 flex items-center justify-center">
+                  <Image
+                    src="/images/happytherapist.webp"
+                    alt="Reduce stress and anxiety"
+                    width={300}
+                    height={256}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+                <p
+                  className="text-center leading-relaxed px-2"
+                  style={{
+                    color: "#374151",
+                    fontFamily: "Permanent Marker, cursive",
+                    fontSize: "13px",
+                  }}
+                >
+                  Help you reduce your stress and anxiety that comes with
+                  owning a very busy practice and caring for your clients.
+                </p>
+              </div>
+
+              {/* Polaroid 5 */}
+              <div
+                className="bg-white p-4 pb-16 shadow-2xl transform hover:scale-105 hover:-rotate-1 transition-all duration-300"
+                style={{
+                  boxShadow: "0 20px 40px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 0, 0, 0.1)",
+                  transform: "rotate(-1.5deg)"
+                }}
+              >
+                <div className="bg-gray-100 mb-4 overflow-hidden h-64 flex items-center justify-center">
+                  <Image
+                    src="/images/happyclientphoto.jpg"
+                    alt="Improve client outcomes"
+                    width={300}
+                    height={256}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+                <p
+                  className="text-center leading-relaxed px-2"
+                  style={{
+                    color: "#374151",
+                    fontFamily: "Permanent Marker, cursive",
+                    fontSize: "13px",
+                  }}
+                >
+                  Help you improve the outcomes of your clients&apos; experience in
+                  therapy so they can&apos;t wait to tell all their family and
+                  friends about you, improving your numbers exponentially.
+                </p>
+              </div>
+
+              {/* Polaroid 6 */}
+              <div
+                className="bg-white p-4 pb-16 shadow-2xl transform hover:scale-105 hover:rotate-1 transition-all duration-300"
+                style={{
+                  boxShadow: "0 20px 40px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 0, 0, 0.1)",
+                  transform: "rotate(1.5deg)"
+                }}
+              >
+                <div className="bg-gray-100 mb-4 overflow-hidden h-64 flex items-center justify-center">
+                  <Image
+                    src="/images/thoughts4.jpg"
+                    alt="Grow personally and professionally"
+                    width={300}
+                    height={256}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+                <p
+                  className="text-center leading-relaxed px-2"
+                  style={{
+                    color: "#374151",
+                    fontFamily: "Permanent Marker, cursive",
+                    fontSize: "13px",
+                  }}
+                >
+                  Help you grow both personally and professionally by learning
+                  how to apply PhotoTherapy techniques to your own life so you
+                  too can experience your own success story.
+                </p>
+              </div>
             </div>
           </div>
 
@@ -1137,7 +1279,7 @@ export default function HomePage() {
               className="text-4xl md:text-5xl font-light mb-8"
               style={{
                 fontFamily: "Cormorant Garamond, serif",
-                color: "#003027",
+                color: "#374151",
                 lineHeight: "1.1",
               }}
             >
@@ -1145,7 +1287,7 @@ export default function HomePage() {
             </h2>
             <div
               className="w-24 h-0.5 mx-auto mb-8"
-              style={{ backgroundColor: "#2D5A4D" }}
+              style={{ backgroundColor: "#6B7280" }}
             ></div>
           </div>
 
@@ -1265,7 +1407,7 @@ export default function HomePage() {
 
           <div
             className="rounded-3xl p-12"
-            style={{ backgroundColor: "#003027", color: "#FFFFFF" }}
+            style={{ backgroundColor: "#374151", color: "#FFFFFF" }}
           >
             <h3
               className="text-3xl font-light mb-12 text-center"
@@ -1387,15 +1529,21 @@ export default function HomePage() {
               Meet Your Instructor
             </h2>
             <p className="text-xl text-gray-600">
-              Kelly Gauthier - PhotoTherapy Pioneer
+              Kelly Gauthier - PhotoTherapy Specialist & Practioner
             </p>
           </div>
 
           <div className="bg-white rounded-2xl shadow-lg p-8 max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
-                <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-full p-6 w-32 h-32 mx-auto mb-6 flex items-center justify-center">
-                  <Camera className="h-16 w-16 text-white" />
+                <div className="w-64 h-64 mx-auto mb-6 rounded-full overflow-hidden shadow-xl">
+                  <Image
+                    src="/images/profile.png"
+                    alt="Kelly Gauthier - PhotoTherapy Specialist"
+                    width={256}
+                    height={256}
+                    className="object-cover w-full h-full"
+                  />
                 </div>
               </div>
               <div>
@@ -1437,8 +1585,11 @@ export default function HomePage() {
                     <div className="text-sm text-gray-600">Clients Helped</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-green-600">
-                      Test
+                    <div
+                      className="text-2xl font-bold"
+                      style={{ color: "#10B981" }}
+                    >
+                      $$$$$$
                     </div>
                     <div className="text-sm text-gray-600">Income Achieved</div>
                   </div>
@@ -1498,27 +1649,27 @@ export default function HomePage() {
             ))}
           </div>
 
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl text-white p-8 text-center">
+          <div className="bg-gradient-to-r from-gray-700 to-gray-600 rounded-2xl text-white p-8 text-center">
             <h3 className="text-2xl font-bold mb-4">
               12-Week Transformation Program
             </h3>
-            <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
+            <p className="text-gray-200 mb-6 max-w-2xl mx-auto">
               Designed for mental health professionals and practitioners looking
-              to improve - each module takes just 3-4 hours per week. You'll
-              have lifetime access plus ongoing support through our community.
+              to improve. Each module takes just 3-4 hours per week. You'll have
+              lifetime access plus ongoing support through our community.
             </p>
             <div className="grid md:grid-cols-3 gap-6">
               <div>
                 <div className="text-3xl font-bold mb-2">12</div>
-                <div className="text-blue-100">Weekly Modules</div>
+                <div className="text-gray-200">Weekly Modules</div>
               </div>
               <div>
                 <div className="text-3xl font-bold mb-2">3-4</div>
-                <div className="text-blue-100">Hours per Week</div>
+                <div className="text-gray-200">Hours per Week</div>
               </div>
               <div>
                 <div className="text-3xl font-bold mb-2">∞</div>
-                <div className="text-blue-100">Lifetime Access</div>
+                <div className="text-gray-200">Lifetime Access</div>
               </div>
             </div>
           </div>
@@ -1544,24 +1695,24 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                name: "Dr. Sarah Chen",
-                role: "Licensed Therapist",
+                name: "P. Anderson",
+                role: "",
                 quote:
-                  "PhotoTherapy has revolutionized my practice. I'm helping clients breakthrough in ways I never thought possible.",
+                  "If you're on the fence about taking this course, I suggest you get off the fence and sign up now! It was literally a godsend for both myself and my practice.",
                 rating: 5,
               },
               {
-                name: "Michael Rodriguez",
-                role: "Clinical Social Worker",
+                name: "C. Foote",
+                role: "",
                 quote:
-                  "I doubled my income in 6 months and finally have the work-life balance I always wanted.",
+                  "Adding Phototherapy to my existing skills has not only doubled my income, but it's also doubled my client success stories. I'd say that's a HUGE win-win.",
                 rating: 5,
               },
               {
-                name: "Jennifer Walsh",
-                role: "Marriage Counselor",
+                name: "D. Davis",
+                role: "",
                 quote:
-                  "The techniques I learned helped me connect with clients who were previously resistant to traditional therapy.",
+                  "I always knew photographs could move people more than words. I just never realized, until taking this course, just how important and instrumental visuals are to a client's self-awareness and overall healing. Can't thank you enough Kelly for creating this course!",
                 rating: 5,
               },
             ].map((testimonial, index) => (
@@ -1603,30 +1754,241 @@ export default function HomePage() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            {user ? (
-              <a
-                href="/dashboard"
-                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-10 py-5 rounded-xl font-bold text-xl transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-3"
-              >
-                <BookOpen className="h-6 w-6" />
-                Start Learning Now
-              </a>
-            ) : (
-              <button
-                onClick={signInWithGoogle}
-                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-10 py-5 rounded-xl font-bold text-xl transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-3"
-              >
-                <LogIn className="h-6 w-6" />
-                Enroll Today
-              </button>
-            )}
+            <a
+              href="/enroll"
+              className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-white px-10 py-5 rounded-xl font-bold text-xl transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-3"
+            >
+              <BookOpen className="h-6 w-6" />
+              Enroll Today
+            </a>
           </div>
 
           <p className="text-sm text-gray-500 mt-6">
             Invest in yourself today. You'll be so glad you did.
           </p>
+          <p className="text-lg font-semibold text-gray-700 mt-2">
+            Just Picture It!
+          </p>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-100 border-t border-gray-300">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          {/* Newsletter Signup */}
+          <div className="mb-12">
+            <h3
+              className="text-2xl font-light mb-4"
+              style={{
+                fontFamily: "Cormorant Garamond, serif",
+                color: "#374151",
+              }}
+            >
+              PhotoTherapy Insights in Your Mailbox
+            </h3>
+            <form className="flex flex-col sm:flex-row gap-3 max-w-md">
+              <input
+                type="email"
+                placeholder="your@email.com"
+                className="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400"
+                style={{ fontFamily: "Inter, sans-serif" }}
+              />
+              <button
+                type="submit"
+                className="bg-gray-800 text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-900 transition-colors"
+                style={{ fontFamily: "Inter, sans-serif" }}
+              >
+                Subscribe
+              </button>
+            </form>
+            <div className="flex items-start gap-2 mt-3">
+              <input type="checkbox" id="privacy" className="mt-1" />
+              <label
+                htmlFor="privacy"
+                className="text-sm text-gray-600"
+                style={{ fontFamily: "Inter, sans-serif" }}
+              >
+                I agree to the privacy statement
+              </label>
+            </div>
+          </div>
+
+          <hr className="border-gray-300 mb-8" />
+
+          {/* Footer Links */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+            <div>
+              <h4
+                className="font-semibold text-gray-800 mb-3"
+                style={{ fontFamily: "Inter, sans-serif" }}
+              >
+                Explore
+              </h4>
+              <ul className="space-y-2">
+                <li>
+                  <a
+                    href="#about"
+                    className="text-gray-600 hover:text-gray-900 transition-colors"
+                    style={{ fontFamily: "Inter, sans-serif" }}
+                  >
+                    About PhotoTherapy
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#instructor"
+                    className="text-gray-600 hover:text-gray-900 transition-colors"
+                    style={{ fontFamily: "Inter, sans-serif" }}
+                  >
+                    About the Instructor
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/courses"
+                    className="text-gray-600 hover:text-gray-900 transition-colors"
+                    style={{ fontFamily: "Inter, sans-serif" }}
+                  >
+                    Course Modules
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4
+                className="font-semibold text-gray-800 mb-3"
+                style={{ fontFamily: "Inter, sans-serif" }}
+              >
+                Resources
+              </h4>
+              <ul className="space-y-2">
+                <li>
+                  <a
+                    href="#"
+                    className="text-gray-600 hover:text-gray-900 transition-colors"
+                    style={{ fontFamily: "Inter, sans-serif" }}
+                  >
+                    Getting Started
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/dashboard"
+                    className="text-gray-600 hover:text-gray-900 transition-colors"
+                    style={{ fontFamily: "Inter, sans-serif" }}
+                  >
+                    Dashboard
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-gray-600 hover:text-gray-900 transition-colors"
+                    style={{ fontFamily: "Inter, sans-serif" }}
+                  >
+                    Community
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4
+                className="font-semibold text-gray-800 mb-3"
+                style={{ fontFamily: "Inter, sans-serif" }}
+              >
+                Support
+              </h4>
+              <ul className="space-y-2">
+                <li>
+                  <a
+                    href="#"
+                    className="text-gray-600 hover:text-gray-900 transition-colors"
+                    style={{ fontFamily: "Inter, sans-serif" }}
+                  >
+                    Help Center
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-gray-600 hover:text-gray-900 transition-colors"
+                    style={{ fontFamily: "Inter, sans-serif" }}
+                  >
+                    Contact Us
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-gray-600 hover:text-gray-900 transition-colors"
+                    style={{ fontFamily: "Inter, sans-serif" }}
+                  >
+                    FAQ
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4
+                className="font-semibold text-gray-800 mb-3"
+                style={{ fontFamily: "Inter, sans-serif" }}
+              >
+                Connect
+              </h4>
+              <p
+                className="text-gray-600 mb-2"
+                style={{ fontFamily: "Inter, sans-serif" }}
+              >
+                info@fstoptosuccess.com
+              </p>
+              <div className="flex gap-4 mt-4">
+                <a
+                  href="#"
+                  className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-gray-900 transition-colors"
+                >
+                  <span className="sr-only">LinkedIn</span>
+                  in
+                </a>
+                <a
+                  href="#"
+                  className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-gray-900 transition-colors"
+                >
+                  <span className="sr-only">Instagram</span>@
+                </a>
+                <a
+                  href="#"
+                  className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-gray-900 transition-colors"
+                >
+                  <span className="sr-only">Twitter</span>
+                  𝕏
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Bar */}
+          <div className="pt-8 border-t border-gray-300">
+            <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+              <p
+                className="text-sm text-gray-600"
+                style={{ fontFamily: "Inter, sans-serif" }}
+              >
+                © 2024 F-Stop to Success. All rights reserved.
+              </p>
+              <a
+                href="#"
+                className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                style={{ fontFamily: "Inter, sans-serif" }}
+              >
+                Privacy Policy
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

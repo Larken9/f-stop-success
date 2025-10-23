@@ -35,10 +35,10 @@ export default function EnrollmentStatus({ showIcon = true, className = '' }: En
     <div className={`flex items-center space-x-2 ${className}`}>
       {showIcon && (
         isEnrolled 
-          ? <BookOpen className="w-4 h-4 text-green-600" />
+          ? <BookOpen className="w-4 h-4 text-gray-600" />
           : <Lock className="w-4 h-4 text-red-600" />
       )}
-      <span className={isEnrolled ? 'text-green-600 font-medium' : 'text-red-600'}>
+      <span className={isEnrolled ? 'text-gray-600 font-medium' : 'text-red-600'}>
         {isEnrolled ? 'Enrolled' : 'Not Enrolled'}
       </span>
     </div>

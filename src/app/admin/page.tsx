@@ -117,7 +117,7 @@ export default function AdminDashboard() {
               
               <div className="bg-white rounded-lg shadow p-6">
                 <div className="flex items-center">
-                  <BookOpen className="h-8 w-8 text-green-600" />
+                  <BookOpen className="h-8 w-8 text-gray-600" />
                   <div className="ml-4">
                     <p className="text-sm font-medium text-gray-500">Enrolled Users</p>
                     <p className="text-2xl font-bold text-gray-900">{stats.totalEnrolled}</p>
@@ -244,8 +244,8 @@ export default function AdminDashboard() {
                                 {userData.role || 'user'}
                               </span>
                               <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
-                                userData.enrolled 
-                                  ? 'bg-green-100 text-green-800' 
+                                userData.enrolled
+                                  ? 'bg-gray-100 text-gray-800'
                                   : 'bg-yellow-100 text-yellow-800'
                               }`}>
                                 {userData.enrolled ? 'Enrolled' : 'Not Enrolled'}
@@ -266,9 +266,9 @@ export default function AdminDashboard() {
                                 <button
                                   onClick={() => updateUserEnrollment(userData.id, !userData.enrolled)}
                                   className={`text-xs px-2 py-1 rounded ${
-                                    userData.enrolled 
-                                      ? 'bg-red-100 text-red-700 hover:bg-red-200' 
-                                      : 'bg-green-100 text-green-700 hover:bg-green-200'
+                                    userData.enrolled
+                                      ? 'bg-red-100 text-red-700 hover:bg-red-200'
+                                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                                   }`}
                                 >
                                   {userData.enrolled ? 'Unenroll' : 'Enroll'}

@@ -110,7 +110,7 @@ export default async function CoursesPage() {
                           .slice(0, 3)
                           .map((outcome, index) => (
                             <li key={index} className="flex items-start">
-                              <span className="text-green-500 mr-2">✓</span>
+                              <span className="text-gray-500 mr-2">✓</span>
                               {outcome}
                             </li>
                           ))}

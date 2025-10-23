@@ -160,27 +160,27 @@ export default function EnrollmentGuard({
             </h3>
             <div className="grid md:grid-cols-2 gap-4 text-left">
               <div className="flex items-start gap-3">
-                <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
+                <CheckCircle className="h-5 w-5 text-gray-500 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-700">12 comprehensive modules</span>
               </div>
               <div className="flex items-start gap-3">
-                <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
+                <CheckCircle className="h-5 w-5 text-gray-500 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-700">50+ video lessons</span>
               </div>
               <div className="flex items-start gap-3">
-                <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
+                <CheckCircle className="h-5 w-5 text-gray-500 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-700">Lifetime access</span>
               </div>
               <div className="flex items-start gap-3">
-                <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
+                <CheckCircle className="h-5 w-5 text-gray-500 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-700">Community support</span>
               </div>
               <div className="flex items-start gap-3">
-                <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
+                <CheckCircle className="h-5 w-5 text-gray-500 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-700">Practical exercises</span>
               </div>
               <div className="flex items-start gap-3">
-                <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
+                <CheckCircle className="h-5 w-5 text-gray-500 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-700">Expert guidance</span>
               </div>
             </div>

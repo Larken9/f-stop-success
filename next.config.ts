@@ -16,6 +16,13 @@ const nextConfig: NextConfig = {
         port: "",
         pathname: "/**",
       },
+      // Shopify CDN for product images
+      {
+        protocol: "https",
+        hostname: "cdn.shopify.com",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
   eslint: {

@@ -199,7 +199,7 @@ export default async function CoursePage({ params }: CoursePageProps) {
                 <ul className="space-y-3">
                   {course.learningOutcomes.map((outcome, index) => (
                     <li key={index} className="flex items-start">
-                      <span className="text-green-500 mr-3 mt-1">✓</span>
+                      <span className="text-gray-500 mr-3 mt-1">✓</span>
                       <span className="text-gray-700">{outcome}</span>
                     </li>
                   ))}

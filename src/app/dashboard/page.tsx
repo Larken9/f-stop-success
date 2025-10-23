@@ -581,7 +581,7 @@ export default function Dashboard() {
                           </h3>
                           <div className="flex items-center gap-2">
                             {isCompleted && (
-                              <CheckCircle className="h-5 w-5 text-green-500" />
+                              <CheckCircle className="h-5 w-5 text-gray-500" />
                             )}
                             {!canAccess && (
                               <span className="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-full">
@@ -642,7 +642,7 @@ export default function Dashboard() {
                                       key={lesson._id}
                                       className={`p-3 rounded-lg border transition-colors ${
                                         isLessonCompleted
-                                          ? "border-green-200 bg-green-50 hover:bg-green-100"
+                                          ? "border-gray-300 bg-gray-100 hover:bg-gray-200"
                                           : "border-gray-200 bg-gray-50 hover:bg-gray-100"
                                       }`}
                                     >
@@ -673,7 +673,7 @@ export default function Dashboard() {
                                           </div>
                                           <div className="flex items-center gap-2">
                                             {isLessonCompleted ? (
-                                              <CheckCircle className="h-4 w-4 text-green-500" />
+                                              <CheckCircle className="h-4 w-4 text-gray-500" />
                                             ) : (
                                               <button
                                                 onClick={(e) => {
@@ -858,7 +858,7 @@ export default function Dashboard() {
                   <span className="text-gray-600">Active Students</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white text-sm font-bold">
+                  <div className="w-8 h-8 bg-gray-500 rounded-full flex items-center justify-center text-white text-sm font-bold">
                     500+
                   </div>
                   <span className="text-gray-600">Success Stories</span>
