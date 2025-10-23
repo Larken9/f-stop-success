@@ -698,7 +698,7 @@ export default function HomePage() {
 
           <div className="text-center">
             <div
-              className="rounded-3xl p-12 max-w-5xl mx-auto"
+              className="rounded-3xl p-12 max-w-[1600px] mx-auto"
               style={{
                 backgroundColor: "#F7F5F3",
                 border: "1px solid rgba(0, 48, 39, 0.1)",
@@ -714,7 +714,7 @@ export default function HomePage() {
                 Why Visual Therapy Works
               </h3>
               <p
-                className="text-lg leading-relaxed"
+                className="text-lg leading-relaxed mb-12"
                 style={{
                   color: "#666666",
                   fontFamily: "Inter, sans-serif",
@@ -730,122 +730,118 @@ export default function HomePage() {
                   uncovering perfect moments of clarity using photographs.
                 </span>
               </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* 4-Block Image Reveal Section */}
-      <section className="py-32" style={{ backgroundColor: "#F8F9FA" }}>
-        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Block 1: Struggling Client Text */}
-            <div
-              className="rounded-2xl shadow-lg p-6 flex flex-col items-center justify-center text-center aspect-square"
-              style={{
-                backgroundColor: "#374151",
-              }}
-            >
-              <h3
-                className="text-2xl md:text-3xl font-light mb-3"
-                style={{
-                  fontFamily: "Cormorant Garamond, serif",
-                  color: "white",
-                }}
-              >
-                Struggling Client
-              </h3>
-              <p
-                className="text-base md:text-lg"
-                style={{
-                  fontFamily: "Inter, sans-serif",
-                  color: "rgba(255, 255, 255, 0.9)",
-                }}
-              >
-                What do you think and feel when you read this?
-              </p>
-            </div>
-
-            {/* Block 2: Struggling Client Image */}
-            <button
-              onClick={() => setRevealedImage1(!revealedImage1)}
-              className="rounded-2xl shadow-lg overflow-hidden relative cursor-pointer hover:shadow-xl transition-shadow aspect-square"
-            >
-              {!revealedImage1 ? (
+              {/* 4-Block Image Reveal Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {/* Block 1: Struggling Client Text */}
                 <div
-                  className="absolute inset-0 flex items-center justify-center hover:bg-opacity-90 transition-all"
-                  style={{ backgroundColor: "#374151" }}
+                  className="rounded-2xl shadow-lg p-6 flex flex-col items-center justify-center text-center aspect-square"
+                  style={{
+                    backgroundColor: "#374151",
+                  }}
                 >
-                  <span
-                    className="text-white text-lg md:text-xl font-medium"
-                    style={{ fontFamily: "Inter, sans-serif" }}
+                  <h3
+                    className="text-2xl md:text-3xl font-light mb-3"
+                    style={{
+                      fontFamily: "Cormorant Garamond, serif",
+                      color: "white",
+                    }}
                   >
-                    Click to Reveal
-                  </span>
+                    Struggling Client
+                  </h3>
+                  <p
+                    className="text-base md:text-lg"
+                    style={{
+                      fontFamily: "Inter, sans-serif",
+                      color: "rgba(255, 255, 255, 0.9)",
+                    }}
+                  >
+                    What do you think and feel when you read this?
+                  </p>
                 </div>
-              ) : (
-                <Image
-                  src="/images/thoughts.jpg"
-                  alt="Struggling client visualization"
-                  fill
-                  className="object-cover"
-                />
-              )}
-            </button>
 
-            {/* Block 3: Grateful Client Text */}
-            <div
-              className="rounded-2xl shadow-lg p-6 flex flex-col items-center justify-center text-center aspect-square"
-              style={{
-                backgroundColor: "#374151",
-              }}
-            >
-              <h3
-                className="text-2xl md:text-3xl font-light mb-3"
-                style={{
-                  fontFamily: "Cormorant Garamond, serif",
-                  color: "white",
-                }}
-              >
-                A Grateful Client
-              </h3>
-              <p
-                className="text-base md:text-lg"
-                style={{
-                  fontFamily: "Inter, sans-serif",
-                  color: "rgba(255, 255, 255, 0.9)",
-                }}
-              >
-                What do you think and feel when you read this?
-              </p>
-            </div>
+                {/* Block 2: Struggling Client Image */}
+                <button
+                  onClick={() => setRevealedImage1(!revealedImage1)}
+                  className="rounded-2xl shadow-lg overflow-hidden relative cursor-pointer hover:shadow-xl transition-shadow aspect-square"
+                >
+                  {!revealedImage1 ? (
+                    <div
+                      className="absolute inset-0 flex items-center justify-center hover:bg-opacity-90 transition-all"
+                      style={{ backgroundColor: "#374151" }}
+                    >
+                      <span
+                        className="text-white text-lg md:text-xl font-medium"
+                        style={{ fontFamily: "Inter, sans-serif" }}
+                      >
+                        Click to Reveal
+                      </span>
+                    </div>
+                  ) : (
+                    <Image
+                      src="/images/thoughts.jpg"
+                      alt="Struggling client visualization"
+                      fill
+                      className="object-cover"
+                    />
+                  )}
+                </button>
 
-            {/* Block 4: Grateful Client Image */}
-            <button
-              onClick={() => setRevealedImage2(!revealedImage2)}
-              className="rounded-2xl shadow-lg overflow-hidden relative cursor-pointer hover:shadow-xl transition-shadow aspect-square"
-            >
-              {!revealedImage2 ? (
+                {/* Block 3: Grateful Client Text */}
                 <div
-                  className="absolute inset-0 flex items-center justify-center hover:bg-opacity-90 transition-all"
-                  style={{ backgroundColor: "#374151" }}
+                  className="rounded-2xl shadow-lg p-6 flex flex-col items-center justify-center text-center aspect-square"
+                  style={{
+                    backgroundColor: "#374151",
+                  }}
                 >
-                  <span
-                    className="text-white text-lg md:text-xl font-medium"
-                    style={{ fontFamily: "Inter, sans-serif" }}
+                  <h3
+                    className="text-2xl md:text-3xl font-light mb-3"
+                    style={{
+                      fontFamily: "Cormorant Garamond, serif",
+                      color: "white",
+                    }}
                   >
-                    Click to Reveal
-                  </span>
+                    A Grateful Client
+                  </h3>
+                  <p
+                    className="text-base md:text-lg"
+                    style={{
+                      fontFamily: "Inter, sans-serif",
+                      color: "rgba(255, 255, 255, 0.9)",
+                    }}
+                  >
+                    What do you think and feel when you read this?
+                  </p>
                 </div>
-              ) : (
-                <Image
-                  src="/images/thanksful.jpg"
-                  alt="Grateful client visualization"
-                  fill
-                  className="object-cover"
-                />
-              )}
-            </button>
+
+                {/* Block 4: Grateful Client Image */}
+                <button
+                  onClick={() => setRevealedImage2(!revealedImage2)}
+                  className="rounded-2xl shadow-lg overflow-hidden relative cursor-pointer hover:shadow-xl transition-shadow aspect-square"
+                >
+                  {!revealedImage2 ? (
+                    <div
+                      className="absolute inset-0 flex items-center justify-center hover:bg-opacity-90 transition-all"
+                      style={{ backgroundColor: "#374151" }}
+                    >
+                      <span
+                        className="text-white text-lg md:text-xl font-medium"
+                        style={{ fontFamily: "Inter, sans-serif" }}
+                      >
+                        Click to Reveal
+                      </span>
+                    </div>
+                  ) : (
+                    <Image
+                      src="/images/thanksful.jpg"
+                      alt="Grateful client visualization"
+                      fill
+                      className="object-cover"
+                    />
+                  )}
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
