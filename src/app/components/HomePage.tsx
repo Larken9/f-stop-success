@@ -377,7 +377,7 @@ export default function HomePage() {
                   Mental Health Practice
                 </span>
                 <span className="block" style={{ color: "#4B5563" }}>
-                  for both you and your clients
+                  into a thriving success for both you and your clients
                 </span>
               </h1>
 
@@ -741,13 +741,13 @@ export default function HomePage() {
                   }}
                 >
                   <h3
-                    className="text-2xl md:text-3xl font-light mb-3"
+                    className="text-xl md:text-2xl font-light mb-3"
                     style={{
                       fontFamily: "Cormorant Garamond, serif",
                       color: "white",
                     }}
                   >
-                    Struggling Client
+                    &quot;A Client Struggling With Depression&quot;
                   </h3>
                   <p
                     className="text-base md:text-lg"
@@ -756,7 +756,7 @@ export default function HomePage() {
                       color: "rgba(255, 255, 255, 0.9)",
                     }}
                   >
-                    What do you think and feel when you read this?
+                    What do you think and feel when you READ this?
                   </p>
                 </div>
 
@@ -767,9 +767,15 @@ export default function HomePage() {
                 >
                   {!revealedImage1 ? (
                     <div
-                      className="absolute inset-0 flex items-center justify-center hover:bg-opacity-90 transition-all"
+                      className="absolute inset-0 flex flex-col items-center justify-center hover:bg-opacity-90 transition-all p-4"
                       style={{ backgroundColor: "#374151" }}
                     >
+                      <p
+                        className="text-white text-base md:text-lg mb-4 text-center"
+                        style={{ fontFamily: "Inter, sans-serif" }}
+                      >
+                        What do you think and feel when you SEE this image?
+                      </p>
                       <span
                         className="text-white text-lg md:text-xl font-medium"
                         style={{ fontFamily: "Inter, sans-serif" }}
@@ -779,15 +785,15 @@ export default function HomePage() {
                     </div>
                   ) : (
                     <Image
-                      src="/images/thoughts.jpg"
-                      alt="Struggling client visualization"
+                      src="/images/struggling-client.jpg"
+                      alt="A client struggling with depression"
                       fill
                       className="object-cover"
                     />
                   )}
                 </button>
 
-                {/* Block 3: Grateful Client Text */}
+                {/* Block 3: Successful Session Text */}
                 <div
                   className="rounded-2xl shadow-lg p-6 flex flex-col items-center justify-center text-center aspect-square"
                   style={{
@@ -795,13 +801,13 @@ export default function HomePage() {
                   }}
                 >
                   <h3
-                    className="text-2xl md:text-3xl font-light mb-3"
+                    className="text-xl md:text-2xl font-light mb-3"
                     style={{
                       fontFamily: "Cormorant Garamond, serif",
                       color: "white",
                     }}
                   >
-                    A Grateful Client
+                    &quot;A Successful Therapy Session&quot;
                   </h3>
                   <p
                     className="text-base md:text-lg"
@@ -810,20 +816,26 @@ export default function HomePage() {
                       color: "rgba(255, 255, 255, 0.9)",
                     }}
                   >
-                    What do you think and feel when you read this?
+                    What do you think and feel when you READ this?
                   </p>
                 </div>
 
-                {/* Block 4: Grateful Client Image */}
+                {/* Block 4: Successful Session Image */}
                 <button
                   onClick={() => setRevealedImage2(!revealedImage2)}
                   className="rounded-2xl shadow-lg overflow-hidden relative cursor-pointer hover:shadow-xl transition-shadow aspect-square"
                 >
                   {!revealedImage2 ? (
                     <div
-                      className="absolute inset-0 flex items-center justify-center hover:bg-opacity-90 transition-all"
+                      className="absolute inset-0 flex flex-col items-center justify-center hover:bg-opacity-90 transition-all p-4"
                       style={{ backgroundColor: "#374151" }}
                     >
+                      <p
+                        className="text-white text-base md:text-lg mb-4 text-center"
+                        style={{ fontFamily: "Inter, sans-serif" }}
+                      >
+                        What do you think and feel when you SEE this image?
+                      </p>
                       <span
                         className="text-white text-lg md:text-xl font-medium"
                         style={{ fontFamily: "Inter, sans-serif" }}
@@ -833,8 +845,8 @@ export default function HomePage() {
                     </div>
                   ) : (
                     <Image
-                      src="/images/thanksful.jpg"
-                      alt="Grateful client visualization"
+                      src="/images/successful-session.jpg"
+                      alt="A successful therapy session"
                       fill
                       className="object-cover"
                     />
@@ -876,8 +888,8 @@ export default function HomePage() {
                 fontWeight: "300",
               }}
             >
-              Because PhotoTherapy allows us to see what our concerns look like
-              so we can change what they feel like.
+              Because PhotoTherapy allows us to see what our concerns look
+              like so we can change what they feel like.
               <span style={{ color: "#374151", fontWeight: "500" }}>
                 {" "}
                 When we can change how they feel we can change how they impact
@@ -1076,7 +1088,7 @@ export default function HomePage() {
                   fontWeight: "300",
                 }}
               >
-                How photographs can transform your practice and your clients&apos; lives
+                How photographs can transform your practice and your clients&apos; lives.
               </p>
             </div>
 
@@ -1232,7 +1244,7 @@ export default function HomePage() {
                 >
                   Help you improve the outcomes of your clients&apos; experience in
                   therapy so they can&apos;t wait to tell all their family and
-                  friends about you, improving your numbers exponentially.
+                  friends about you, improving your numbers and income exponentially.
                 </p>
               </div>
 
@@ -1358,8 +1370,7 @@ export default function HomePage() {
                 className="leading-relaxed"
                 style={{ color: "#666666", fontFamily: "Inter, sans-serif" }}
               >
-                The power of a clients success is the foundation for a practice
-                remuneration
+                The power of a client&apos;s success is the foundation for a practice&apos;s remuneration.
               </p>
             </div>
 
@@ -1396,7 +1407,7 @@ export default function HomePage() {
                 style={{ color: "#666666", fontFamily: "Inter, sans-serif" }}
               >
                 Work smarter, not harder. Set your own hours, see clients online
-                from home, and design the freedom and the practice you want.
+                from home, and design the freedom and practice you want.
               </p>
             </div>
           </div>
@@ -1433,7 +1444,7 @@ export default function HomePage() {
                 >
                   Pictures speak to everyone, regardless of race, culture, age,
                   gender, or verbal ability. The impact of an image or
-                  photograph needs no words
+                  photograph needs no words.
                 </p>
               </div>
               <div
@@ -1456,9 +1467,9 @@ export default function HomePage() {
                   }}
                 >
                   Photographs help clients access memories and feelings that
-                  might otherwise have gone unnotices. Its the noticing that
+                  might otherwise have gone unnoticed. It&apos;s the noticing that
                   leads to awareness, self-compassion, and understanding for
-                  change
+                  change.
                 </p>
               </div>
               <div
@@ -1505,11 +1516,18 @@ export default function HomePage() {
                 >
                   Not just for clients - transform your own life while becoming
                   a better therapist. A great therapist grows out of a deep
-                  commitment to ongoing learning and personal growth. The Visual
-                  path is paved with positive outcomes
+                  commitment to ongoing learning and personal growth.
                 </p>
               </div>
             </div>
+
+            {/* Visual Path Text - Centered Below */}
+            <h3
+              className="text-3xl font-light mt-12 text-center"
+              style={{ fontFamily: "Cormorant Garamond, serif" }}
+            >
+              The Visual Path Is Paved With Positive Outcomes
+            </h3>
           </div>
         </div>
       </section>
@@ -1525,7 +1543,7 @@ export default function HomePage() {
               Meet Your Instructor
             </h2>
             <p className="text-xl text-gray-600">
-              Kelly Gauthier - PhotoTherapy Specialist & Practioner
+              Kelly Gauthier - PhotoTherapy Specialist & Practitioner
             </p>
           </div>
 
@@ -1762,7 +1780,7 @@ export default function HomePage() {
           <p className="text-sm text-gray-500 mt-6">
             Invest in yourself today. You'll be so glad you did.
           </p>
-          <p className="text-lg font-semibold text-gray-700 mt-2">
+          <p className="text-3xl md:text-4xl font-bold text-gray-800 mt-4" style={{ fontFamily: "Cormorant Garamond, serif" }}>
             Just Picture It!
           </p>
         </div>
