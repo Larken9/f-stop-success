@@ -1103,7 +1103,7 @@ export default function HomePage() {
               >
                 <div className="bg-gray-100 mb-4 overflow-hidden h-64 flex items-center justify-center">
                   <Image
-                    src="/images/thoughts.jpg"
+                    src="/images/struggling-client-5.jpg"
                     alt="Revisualize positive outcomes"
                     width={300}
                     height={256}
@@ -1134,7 +1134,7 @@ export default function HomePage() {
               >
                 <div className="bg-gray-100 mb-4 overflow-hidden h-64 flex items-center justify-center">
                   <Image
-                    src="/images/thoughts2.jpg"
+                    src="/images/photos-5.jpg"
                     alt="Foster positive behaviour change"
                     width={300}
                     height={256}
@@ -1165,7 +1165,7 @@ export default function HomePage() {
               >
                 <div className="bg-gray-100 mb-4 overflow-hidden h-64 flex items-center justify-center">
                   <Image
-                    src="/images/thoughts3.jpg"
+                    src="/images/holding-photos-5.jpg"
                     alt="Improve success stories"
                     width={300}
                     height={256}
@@ -1197,7 +1197,7 @@ export default function HomePage() {
               >
                 <div className="bg-gray-100 mb-4 overflow-hidden h-64 flex items-center justify-center">
                   <Image
-                    src="/images/happytherapist.webp"
+                    src="/images/therapist-happy-5.jpg"
                     alt="Reduce stress and anxiety"
                     width={300}
                     height={256}
@@ -1227,7 +1227,7 @@ export default function HomePage() {
               >
                 <div className="bg-gray-100 mb-4 overflow-hidden h-64 flex items-center justify-center">
                   <Image
-                    src="/images/happyclientphoto.jpg"
+                    src="/images/talking-5.jpg"
                     alt="Improve client outcomes"
                     width={300}
                     height={256}
@@ -1258,7 +1258,7 @@ export default function HomePage() {
               >
                 <div className="bg-gray-100 mb-4 overflow-hidden h-64 flex items-center justify-center">
                   <Image
-                    src="/images/thoughts4.jpg"
+                    src="/images/looking-at-photo-5.jpg"
                     alt="Grow personally and professionally"
                     width={300}
                     height={256}
