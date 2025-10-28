@@ -2,6 +2,14 @@ const domain = process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN;
 const storefrontAccessToken = process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN;
 
 async function ShopifyData(query: string) {
+  if (!domain || !storefrontAccessToken) {
+    console.error('Missing Shopify configuration:', {
+      domain: domain ? 'set' : 'MISSING',
+      token: storefrontAccessToken ? 'set' : 'MISSING'
+    });
+    throw new Error("Shopify configuration is missing. Please check environment variables.");
+  }
+
   const URL = `https://${domain}/api/2024-01/graphql.json`;
 
   const options = {

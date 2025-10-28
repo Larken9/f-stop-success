@@ -40,8 +40,17 @@ export default function EnrollPage() {
   useEffect(() => {
     async function fetchProduct() {
       try {
-        const productId = process.env.NEXT_PUBLIC_SHOPIFY_PRODUCT_ID!;
+        const productId = process.env.NEXT_PUBLIC_SHOPIFY_PRODUCT_ID;
+
+        if (!productId) {
+          console.error("NEXT_PUBLIC_SHOPIFY_PRODUCT_ID is not set");
+          setLoading(false);
+          return;
+        }
+
+        console.log("Fetching product with ID:", productId);
         const productData = await getProduct(productId);
+        console.log("Product data received:", productData);
         setProduct(productData);
       } catch (error) {
         console.error("Error fetching product:", error);
