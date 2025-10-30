@@ -559,7 +559,7 @@ export default function HomePage() {
                 fontWeight: "500",
               }}
             >
-              What if your clients could see their thoughts for what they are..
+              What if your clients could see their thoughts for what they are...
               just thoughts.
             </p>
           </div>
@@ -691,8 +691,9 @@ export default function HomePage() {
                 fontWeight: "500",
               }}
             >
-              and not the cognitive distortions or manifestations of anxiety we
-              too often make them out to be.
+              And not the cognitive distortions or manifestations of anxiety
+              <br />
+              we too often make them out to be.
             </p>
           </div>
 
@@ -722,12 +723,12 @@ export default function HomePage() {
                 }}
               >
                 Images bypass the analytical mind and speak directly to our
-                emotions. In PhotoTherapy, we harness this natural connection to
-                facilitate healing, self-discovery, and personal growth.
+                emotions. In PhotoTherapy, we harness this natural connection
+                <br />
+                to facilitate healing, self-discovery, and personal growth. It&apos;s not about taking perfect photos —
+                <br />
                 <span style={{ color: "#374151", fontWeight: "500" }}>
-                  {" "}
-                  It&apos;s not about taking perfect photos—it&apos;s about
-                  uncovering perfect moments of clarity using photographs.
+                  it&apos;s about uncovering perfect moments of clarity using photographs.
                 </span>
               </p>
 
@@ -904,16 +905,15 @@ export default function HomePage() {
             <div
               className="p-6 rounded-3xl h-full flex flex-col justify-center"
               style={{
-                backgroundColor: "#F3F4F6",
-                border: "1px solid rgba(0, 48, 39, 0.1)",
-                boxShadow: "0 10px 30px rgba(0, 48, 39, 0.08)",
+                backgroundColor: "#374151",
+                boxShadow: "0 10px 30px rgba(55, 65, 81, 0.2)",
               }}
             >
               <h3
                 className="text-2xl font-light mb-4 text-center"
                 style={{
                   fontFamily: "Cormorant Garamond, serif",
-                  color: "#374151",
+                  color: "white",
                 }}
               >
                 Goals of Therapy in General
@@ -922,56 +922,56 @@ export default function HomePage() {
                 <li
                   className="flex items-start"
                   style={{
-                    color: "#666666",
+                    color: "#3B82F6",
                     fontFamily: "Inter, sans-serif",
                     fontSize: "16px",
                   }}
                 >
-                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span>
+                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-blue-400 flex-shrink-0"></span>
                   Reduce emotional distress
                 </li>
                 <li
                   className="flex items-start"
                   style={{
-                    color: "#666666",
+                    color: "#3B82F6",
                     fontFamily: "Inter, sans-serif",
                     fontSize: "16px",
                   }}
                 >
-                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span>
+                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-blue-400 flex-shrink-0"></span>
                   Develop healthy coping skills
                 </li>
                 <li
                   className="flex items-start"
                   style={{
-                    color: "#666666",
+                    color: "#3B82F6",
                     fontFamily: "Inter, sans-serif",
                     fontSize: "16px",
                   }}
                 >
-                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span>
+                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-blue-400 flex-shrink-0"></span>
                   Improve self-awareness
                 </li>
                 <li
                   className="flex items-start"
                   style={{
-                    color: "#666666",
+                    color: "#3B82F6",
                     fontFamily: "Inter, sans-serif",
                     fontSize: "16px",
                   }}
                 >
-                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span>
+                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-blue-400 flex-shrink-0"></span>
                   Change negative behaviors
                 </li>
                 <li
                   className="flex items-start"
                   style={{
-                    color: "#666666",
+                    color: "#3B82F6",
                     fontFamily: "Inter, sans-serif",
                     fontSize: "16px",
                   }}
                 >
-                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span>
+                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-blue-400 flex-shrink-0"></span>
                   Improve overall well-being & relations
                 </li>
               </ul>
@@ -1119,8 +1119,9 @@ export default function HomePage() {
                   }}
                 >
                   Helping your clients become more aware of inaccurate and
-                  harmful ways of thinking by showing them how to revisualize
-                  positive outcomes.
+                  harmful ways of thinking by showing them
+                  <br />
+                  how to revisualize positive outcomes.
                 </p>
               </div>
 
@@ -1273,9 +1274,13 @@ export default function HomePage() {
                     fontSize: "13px",
                   }}
                 >
-                  Help you grow both personally and professionally by learning
-                  how to apply PhotoTherapy techniques to your own life so you
-                  too can experience your own success story.
+                  Help you grow both personally and
+                  <br />
+                  professionally by learning how to apply PhotoTherapy
+                  <br />
+                  techniques to your own life so you too can
+                  <br />
+                  experience your own success story.
                 </p>
               </div>
             </div>
@@ -1407,7 +1412,9 @@ export default function HomePage() {
                 style={{ color: "#666666", fontFamily: "Inter, sans-serif" }}
               >
                 Work smarter, not harder. Set your own hours, see clients online
-                from home, and design the freedom and practice you want.
+                from home,
+                <br />
+                and design the freedom and practice you want.
               </p>
             </div>
           </div>
@@ -1425,7 +1432,7 @@ export default function HomePage() {
             <div className="grid md:grid-cols-2 gap-8">
               <div
                 className="p-6 rounded-2xl"
-                style={{ backgroundColor: "rgba(255, 255, 255, 0.05)" }}
+                style={{ backgroundColor: "#374151" }}
               >
                 <h4
                   className="font-medium text-lg mb-3"
@@ -1438,7 +1445,7 @@ export default function HomePage() {
                 </h4>
                 <p
                   style={{
-                    color: "rgba(255, 255, 255, 0.8)",
+                    color: "#3B82F6",
                     fontFamily: "Inter, sans-serif",
                   }}
                 >
@@ -1449,7 +1456,7 @@ export default function HomePage() {
               </div>
               <div
                 className="p-6 rounded-2xl"
-                style={{ backgroundColor: "rgba(255, 255, 255, 0.05)" }}
+                style={{ backgroundColor: "#374151" }}
               >
                 <h4
                   className="font-medium text-lg mb-3"
@@ -1462,7 +1469,7 @@ export default function HomePage() {
                 </h4>
                 <p
                   style={{
-                    color: "rgba(255, 255, 255, 0.8)",
+                    color: "#3B82F6",
                     fontFamily: "Inter, sans-serif",
                   }}
                 >
@@ -1474,7 +1481,7 @@ export default function HomePage() {
               </div>
               <div
                 className="p-6 rounded-2xl"
-                style={{ backgroundColor: "rgba(255, 255, 255, 0.05)" }}
+                style={{ backgroundColor: "#374151" }}
               >
                 <h4
                   className="font-medium text-lg mb-3"
@@ -1487,7 +1494,7 @@ export default function HomePage() {
                 </h4>
                 <p
                   style={{
-                    color: "rgba(255, 255, 255, 0.8)",
+                    color: "#3B82F6",
                     fontFamily: "Inter, sans-serif",
                   }}
                 >
@@ -1497,7 +1504,7 @@ export default function HomePage() {
               </div>
               <div
                 className="p-6 rounded-2xl"
-                style={{ backgroundColor: "rgba(255, 255, 255, 0.05)" }}
+                style={{ backgroundColor: "#374151" }}
               >
                 <h4
                   className="font-medium text-lg mb-3"
@@ -1510,7 +1517,7 @@ export default function HomePage() {
                 </h4>
                 <p
                   style={{
-                    color: "rgba(255, 255, 255, 0.8)",
+                    color: "#3B82F6",
                     fontFamily: "Inter, sans-serif",
                   }}
                 >
@@ -1535,19 +1542,20 @@ export default function HomePage() {
       {/* About the Instructor Section */}
       <section
         id="instructor"
-        className="py-16 bg-gradient-to-br from-blue-50 to-purple-50"
+        className="py-16"
+        style={{ backgroundColor: "#3B82F6" }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold text-white mb-4">
               Meet Your Instructor
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-white">
               Kelly Gauthier - PhotoTherapy Specialist & Practitioner
             </p>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-lg p-8 max-w-4xl mx-auto">
+          <div className="rounded-2xl shadow-lg p-8 max-w-4xl mx-auto" style={{ backgroundColor: "#3B82F6" }}>
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
                 <div className="w-64 h-64 mx-auto mb-6 rounded-full overflow-hidden shadow-xl">
@@ -1561,10 +1569,10 @@ export default function HomePage() {
                 </div>
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                <h3 className="text-2xl font-bold text-white mb-4">
                   Kelly Gauthier
                 </h3>
-                <p className="text-gray-600 mb-4">
+                <p className="text-white mb-4">
                   Kelly has walked in your shoes and faced the same challenges
                   you have. After graduating with an honours BA in Photography,
                   Kelly set out to change the world visually, only to encounter
@@ -1576,7 +1584,7 @@ export default function HomePage() {
                   continue running Camp Camera that she turned to photographs
                   and photography for her own recovery and healing.
                 </p>
-                <p className="text-gray-600 mb-4">
+                <p className="text-white mb-4">
                   It was through this experience that Kelly found her calling!
                   She is now a Registered Art Therapist operating a highly
                   successful PhotoTherapy based practice, earning a 6-figure
@@ -1587,35 +1595,34 @@ export default function HomePage() {
                 </p>
                 <div className="flex items-center gap-4">
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-blue-600">20+</div>
-                    <div className="text-sm text-gray-600">
+                    <div className="text-2xl font-bold text-white">20+</div>
+                    <div className="text-sm text-white">
                       Years Experience
                     </div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-purple-600">
+                    <div className="text-2xl font-bold text-white">
                       1000+
                     </div>
-                    <div className="text-sm text-gray-600">Clients Helped</div>
+                    <div className="text-sm text-white">Clients Helped</div>
                   </div>
                   <div className="text-center">
                     <div
-                      className="text-2xl font-bold"
-                      style={{ color: "#10B981" }}
+                      className="text-2xl font-bold text-white"
                     >
                       $$$$$$
                     </div>
-                    <div className="text-sm text-gray-600">Income Achieved</div>
+                    <div className="text-sm text-white">Income Achieved</div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="mt-8 p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl">
-              <h4 className="font-bold text-gray-900 mb-3">
+            <div className="mt-8 p-6 rounded-xl" style={{ backgroundColor: "rgba(255, 255, 255, 0.2)" }}>
+              <h4 className="font-bold text-white mb-3">
                 Kelly's Philosophy:
               </h4>
-              <blockquote className="text-gray-700 italic">
+              <blockquote className="text-white italic">
                 "For you to become the best at what you do, you need to be the
                 best at who you are first. You need to walk your PhotoTherapy
                 talk! The greatest of therapists have done the work they're
@@ -1693,7 +1700,8 @@ export default function HomePage() {
       {/* Success Stories Section */}
       <section
         id="testimonials"
-        className="py-16 bg-gradient-to-br from-blue-50 to-purple-50"
+        className="py-16"
+        style={{ backgroundColor: "#FAFAFA" }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -1730,7 +1738,7 @@ export default function HomePage() {
                 rating: 5,
               },
             ].map((testimonial, index) => (
-              <div key={index} className="bg-white rounded-2xl shadow-lg p-8">
+              <div key={index} className="rounded-2xl shadow-lg p-8" style={{ backgroundColor: "#374151" }}>
                 <div className="flex items-center justify-center mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star
@@ -1739,14 +1747,14 @@ export default function HomePage() {
                     />
                   ))}
                 </div>
-                <p className="text-gray-600 mb-6 italic">
+                <p className="mb-6 italic" style={{ color: "#3B82F6" }}>
                   "{testimonial.quote}"
                 </p>
                 <div className="text-center">
-                  <div className="font-bold text-gray-900">
+                  <div className="font-bold text-white">
                     {testimonial.name}
                   </div>
-                  <div className="text-sm text-gray-500">
+                  <div className="text-sm text-white">
                     {testimonial.role}
                   </div>
                 </div>
@@ -1963,21 +1971,7 @@ export default function HomePage() {
                   href="#"
                   className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-gray-900 transition-colors"
                 >
-                  <span className="sr-only">LinkedIn</span>
-                  in
-                </a>
-                <a
-                  href="#"
-                  className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-gray-900 transition-colors"
-                >
                   <span className="sr-only">Instagram</span>@
-                </a>
-                <a
-                  href="#"
-                  className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-gray-900 transition-colors"
-                >
-                  <span className="sr-only">Twitter</span>
-                  𝕏
                 </a>
               </div>
             </div>
@@ -1990,7 +1984,7 @@ export default function HomePage() {
                 className="text-sm text-gray-600"
                 style={{ fontFamily: "Inter, sans-serif" }}
               >
-                © 2024 F-Stop to Success. All rights reserved.
+                © 2020 F-Stop to Success. All rights reserved.
               </p>
               <a
                 href="#"
