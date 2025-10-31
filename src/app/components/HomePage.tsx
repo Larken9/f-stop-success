@@ -1438,9 +1438,9 @@ export default function HomePage() {
                 style={{ color: "#666666", fontFamily: "Inter, sans-serif" }}
               >
                 Work smarter, not harder. Set your own hours, see clients online
-                from home,
+                from home, and design the freedom and practice
                 <br />
-                and design the freedom and practice you want.
+                you want.
               </p>
             </div>
           </div>
@@ -1458,20 +1458,20 @@ export default function HomePage() {
             <div className="grid md:grid-cols-2 gap-8">
               <div
                 className="p-6 rounded-2xl"
-                style={{ backgroundColor: "#1a1a1a" }}
+                style={{ backgroundColor: "#4B5563" }}
               >
                 <h4
                   className="font-medium text-lg mb-3"
                   style={{
                     fontFamily: "Cormorant Garamond, serif",
-                    color: "#D1D5DB",
+                    color: "#3B82F6",
                   }}
                 >
                   Universal Language
                 </h4>
                 <p
                   style={{
-                    color: "#D1D5DB",
+                    color: "#3B82F6",
                     fontFamily: "Inter, sans-serif",
                   }}
                 >
@@ -1482,20 +1482,20 @@ export default function HomePage() {
               </div>
               <div
                 className="p-6 rounded-2xl"
-                style={{ backgroundColor: "#1a1a1a" }}
+                style={{ backgroundColor: "#4B5563" }}
               >
                 <h4
                   className="font-medium text-lg mb-3"
                   style={{
                     fontFamily: "Cormorant Garamond, serif",
-                    color: "#D1D5DB",
+                    color: "#3B82F6",
                   }}
                 >
                   Unlock Repressed Emotions
                 </h4>
                 <p
                   style={{
-                    color: "#D1D5DB",
+                    color: "#3B82F6",
                     fontFamily: "Inter, sans-serif",
                   }}
                 >
@@ -1507,20 +1507,20 @@ export default function HomePage() {
               </div>
               <div
                 className="p-6 rounded-2xl"
-                style={{ backgroundColor: "#1a1a1a" }}
+                style={{ backgroundColor: "#4B5563" }}
               >
                 <h4
                   className="font-medium text-lg mb-3"
                   style={{
                     fontFamily: "Cormorant Garamond, serif",
-                    color: "#D1D5DB",
+                    color: "#3B82F6",
                   }}
                 >
                   Symbolic Communication
                 </h4>
                 <p
                   style={{
-                    color: "#D1D5DB",
+                    color: "#3B82F6",
                     fontFamily: "Inter, sans-serif",
                   }}
                 >
@@ -1530,20 +1530,20 @@ export default function HomePage() {
               </div>
               <div
                 className="p-6 rounded-2xl"
-                style={{ backgroundColor: "#1a1a1a" }}
+                style={{ backgroundColor: "#4B5563" }}
               >
                 <h4
                   className="font-medium text-lg mb-3"
                   style={{
                     fontFamily: "Cormorant Garamond, serif",
-                    color: "#D1D5DB",
+                    color: "#3B82F6",
                   }}
                 >
                   Personal Growth
                 </h4>
                 <p
                   style={{
-                    color: "#D1D5DB",
+                    color: "#3B82F6",
                     fontFamily: "Inter, sans-serif",
                   }}
                 >
@@ -1664,12 +1664,12 @@ export default function HomePage() {
 
             <div
               className="mt-8 p-6 rounded-xl"
-              style={{ backgroundColor: "#1a1a1a" }}
+              style={{ backgroundColor: "#4B5563" }}
             >
-              <h4 className="font-bold mb-3" style={{ color: "#D1D5DB" }}>
+              <h4 className="font-bold mb-3" style={{ color: "#3B82F6" }}>
                 Kelly's Philosophy:
               </h4>
-              <blockquote className="italic" style={{ color: "#D1D5DB" }}>
+              <blockquote className="italic" style={{ color: "#3B82F6" }}>
                 "For you to become the best at what you do, you need to be the
                 best at who you are first. You need to walk your PhotoTherapy
                 talk! The greatest of therapists have done the work they're
@@ -1788,7 +1788,7 @@ export default function HomePage() {
               <div
                 key={index}
                 className="rounded-2xl shadow-lg p-8"
-                style={{ backgroundColor: "#1A1A1A" }}
+                style={{ backgroundColor: "#4B5563" }}
               >
                 <div className="flex items-center justify-center mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
