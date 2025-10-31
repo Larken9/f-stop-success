@@ -1432,20 +1432,20 @@ export default function HomePage() {
             <div className="grid md:grid-cols-2 gap-8">
               <div
                 className="p-6 rounded-2xl"
-                style={{ backgroundColor: "#374151" }}
+                style={{ backgroundColor: "#1a1a1a" }}
               >
                 <h4
                   className="font-medium text-lg mb-3"
                   style={{
                     fontFamily: "Cormorant Garamond, serif",
-                    color: "#FFFFFF",
+                    color: "#D1D5DB",
                   }}
                 >
                   Universal Language
                 </h4>
                 <p
                   style={{
-                    color: "#3B82F6",
+                    color: "#D1D5DB",
                     fontFamily: "Inter, sans-serif",
                   }}
                 >
@@ -1456,20 +1456,20 @@ export default function HomePage() {
               </div>
               <div
                 className="p-6 rounded-2xl"
-                style={{ backgroundColor: "#374151" }}
+                style={{ backgroundColor: "#1a1a1a" }}
               >
                 <h4
                   className="font-medium text-lg mb-3"
                   style={{
                     fontFamily: "Cormorant Garamond, serif",
-                    color: "#FFFFFF",
+                    color: "#D1D5DB",
                   }}
                 >
                   Unlock Repressed Emotions
                 </h4>
                 <p
                   style={{
-                    color: "#3B82F6",
+                    color: "#D1D5DB",
                     fontFamily: "Inter, sans-serif",
                   }}
                 >
@@ -1481,20 +1481,20 @@ export default function HomePage() {
               </div>
               <div
                 className="p-6 rounded-2xl"
-                style={{ backgroundColor: "#374151" }}
+                style={{ backgroundColor: "#1a1a1a" }}
               >
                 <h4
                   className="font-medium text-lg mb-3"
                   style={{
                     fontFamily: "Cormorant Garamond, serif",
-                    color: "#FFFFFF",
+                    color: "#D1D5DB",
                   }}
                 >
                   Symbolic Communication
                 </h4>
                 <p
                   style={{
-                    color: "#3B82F6",
+                    color: "#D1D5DB",
                     fontFamily: "Inter, sans-serif",
                   }}
                 >
@@ -1504,20 +1504,20 @@ export default function HomePage() {
               </div>
               <div
                 className="p-6 rounded-2xl"
-                style={{ backgroundColor: "#374151" }}
+                style={{ backgroundColor: "#1a1a1a" }}
               >
                 <h4
                   className="font-medium text-lg mb-3"
                   style={{
                     fontFamily: "Cormorant Garamond, serif",
-                    color: "#FFFFFF",
+                    color: "#D1D5DB",
                   }}
                 >
                   Personal Growth
                 </h4>
                 <p
                   style={{
-                    color: "#3B82F6",
+                    color: "#D1D5DB",
                     fontFamily: "Inter, sans-serif",
                   }}
                 >
