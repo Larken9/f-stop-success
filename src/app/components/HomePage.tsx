@@ -1542,20 +1542,19 @@ export default function HomePage() {
       {/* About the Instructor Section */}
       <section
         id="instructor"
-        className="py-16"
-        style={{ backgroundColor: "#3B82F6" }}
+        className="py-16 bg-gradient-to-br from-blue-50 to-purple-50"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Meet Your Instructor
             </h2>
-            <p className="text-xl text-white">
+            <p className="text-xl text-gray-600">
               Kelly Gauthier - PhotoTherapy Specialist & Practitioner
             </p>
           </div>
 
-          <div className="rounded-2xl shadow-lg p-8 max-w-4xl mx-auto" style={{ backgroundColor: "#3B82F6" }}>
+          <div className="bg-white rounded-2xl shadow-lg p-8 max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
                 <div className="w-64 h-64 mx-auto mb-6 rounded-full overflow-hidden shadow-xl">
@@ -1569,10 +1568,10 @@ export default function HomePage() {
                 </div>
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-white mb-4">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">
                   Kelly Gauthier
                 </h3>
-                <p className="text-white mb-4">
+                <p className="text-gray-600 mb-4">
                   Kelly has walked in your shoes and faced the same challenges
                   you have. After graduating with an honours BA in Photography,
                   Kelly set out to change the world visually, only to encounter
@@ -1580,11 +1579,11 @@ export default function HomePage() {
                   that came with owning her own business, to the long hours
                   worked just to try and make ends meet, to a real lack of
                   connection and fulfillment from and with her clients. It
-                  wasn’t until a bad bike accident rendered Kelly unable to
+                  wasn't until a bad bike accident rendered Kelly unable to
                   continue running Camp Camera that she turned to photographs
                   and photography for her own recovery and healing.
                 </p>
-                <p className="text-white mb-4">
+                <p className="text-gray-600 mb-4">
                   It was through this experience that Kelly found her calling!
                   She is now a Registered Art Therapist operating a highly
                   successful PhotoTherapy based practice, earning a 6-figure
@@ -1595,34 +1594,35 @@ export default function HomePage() {
                 </p>
                 <div className="flex items-center gap-4">
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-white">20+</div>
-                    <div className="text-sm text-white">
+                    <div className="text-2xl font-bold text-blue-600">20+</div>
+                    <div className="text-sm text-gray-600">
                       Years Experience
                     </div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-white">
+                    <div className="text-2xl font-bold text-purple-600">
                       1000+
                     </div>
-                    <div className="text-sm text-white">Clients Helped</div>
+                    <div className="text-sm text-gray-600">Clients Helped</div>
                   </div>
                   <div className="text-center">
                     <div
-                      className="text-2xl font-bold text-white"
+                      className="text-2xl font-bold"
+                      style={{ color: "#10B981" }}
                     >
                       $$$$$$
                     </div>
-                    <div className="text-sm text-white">Income Achieved</div>
+                    <div className="text-sm text-gray-600">Income Achieved</div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="mt-8 p-6 rounded-xl" style={{ backgroundColor: "rgba(255, 255, 255, 0.2)" }}>
-              <h4 className="font-bold text-white mb-3">
+            <div className="mt-8 p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl">
+              <h4 className="font-bold text-gray-900 mb-3">
                 Kelly's Philosophy:
               </h4>
-              <blockquote className="text-white italic">
+              <blockquote className="text-gray-700 italic">
                 "For you to become the best at what you do, you need to be the
                 best at who you are first. You need to walk your PhotoTherapy
                 talk! The greatest of therapists have done the work they're
