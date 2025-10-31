@@ -1788,7 +1788,7 @@ export default function HomePage() {
               <div
                 key={index}
                 className="rounded-2xl shadow-lg p-8"
-                style={{ backgroundColor: "#374151" }}
+                style={{ backgroundColor: "#1A1A1A" }}
               >
                 <div className="flex items-center justify-center mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
@@ -1802,8 +1802,8 @@ export default function HomePage() {
                   "{testimonial.quote}"
                 </p>
                 <div className="text-center">
-                  <div className="font-bold text-white">{testimonial.name}</div>
-                  <div className="text-sm text-white">{testimonial.role}</div>
+                  <div className="font-bold" style={{ color: "#3B82F6" }}>{testimonial.name}</div>
+                  <div className="text-sm" style={{ color: "#3B82F6" }}>{testimonial.role}</div>
                 </div>
               </div>
             ))}
