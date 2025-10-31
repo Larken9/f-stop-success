@@ -905,15 +905,15 @@ export default function HomePage() {
             <div
               className="p-6 rounded-3xl h-full flex flex-col justify-center"
               style={{
-                backgroundColor: "#1a1a1a",
-                boxShadow: "0 10px 30px rgba(26, 26, 26, 0.3)",
+                backgroundColor: "#2c2c2c",
+                boxShadow: "0 10px 30px rgba(44, 44, 44, 0.3)",
               }}
             >
               <h3
                 className="text-2xl font-light mb-4 text-center"
                 style={{
                   fontFamily: "Cormorant Garamond, serif",
-                  color: "#3B82F6",
+                  color: "#1e3a8a",
                 }}
               >
                 Goals of Therapy in General
@@ -922,56 +922,56 @@ export default function HomePage() {
                 <li
                   className="flex items-start"
                   style={{
-                    color: "#3B82F6",
+                    color: "#1e3a8a",
                     fontFamily: "Inter, sans-serif",
                     fontSize: "16px",
                   }}
                 >
-                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-blue-400 flex-shrink-0"></span>
+                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: "#1e3a8a" }}></span>
                   Reduce emotional distress
                 </li>
                 <li
                   className="flex items-start"
                   style={{
-                    color: "#3B82F6",
+                    color: "#1e3a8a",
                     fontFamily: "Inter, sans-serif",
                     fontSize: "16px",
                   }}
                 >
-                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-blue-400 flex-shrink-0"></span>
+                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: "#1e3a8a" }}></span>
                   Develop healthy coping skills
                 </li>
                 <li
                   className="flex items-start"
                   style={{
-                    color: "#3B82F6",
+                    color: "#1e3a8a",
                     fontFamily: "Inter, sans-serif",
                     fontSize: "16px",
                   }}
                 >
-                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-blue-400 flex-shrink-0"></span>
+                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: "#1e3a8a" }}></span>
                   Improve self-awareness
                 </li>
                 <li
                   className="flex items-start"
                   style={{
-                    color: "#3B82F6",
+                    color: "#1e3a8a",
                     fontFamily: "Inter, sans-serif",
                     fontSize: "16px",
                   }}
                 >
-                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-blue-400 flex-shrink-0"></span>
+                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: "#1e3a8a" }}></span>
                   Change negative behaviors
                 </li>
                 <li
                   className="flex items-start"
                   style={{
-                    color: "#3B82F6",
+                    color: "#1e3a8a",
                     fontFamily: "Inter, sans-serif",
                     fontSize: "16px",
                   }}
                 >
-                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-blue-400 flex-shrink-0"></span>
+                  <span className="mr-3 mt-1.5 w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: "#1e3a8a" }}></span>
                   Improve overall well-being & relations
                 </li>
               </ul>
