@@ -905,8 +905,8 @@ export default function HomePage() {
             <div
               className="p-6 rounded-3xl h-full flex flex-col justify-center"
               style={{
-                backgroundColor: "#0a0a0a",
-                boxShadow: "0 10px 30px rgba(10, 10, 10, 0.4)",
+                backgroundColor: "#1a1a1a",
+                boxShadow: "0 10px 30px rgba(26, 26, 26, 0.4)",
               }}
             >
               <h3
