@@ -1618,11 +1618,11 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="mt-8 p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl">
-              <h4 className="font-bold text-gray-900 mb-3">
+            <div className="mt-8 p-6 rounded-xl" style={{ backgroundColor: "#1a1a1a" }}>
+              <h4 className="font-bold mb-3" style={{ color: "#D1D5DB" }}>
                 Kelly's Philosophy:
               </h4>
-              <blockquote className="text-gray-700 italic">
+              <blockquote className="italic" style={{ color: "#D1D5DB" }}>
                 "For you to become the best at what you do, you need to be the
                 best at who you are first. You need to walk your PhotoTherapy
                 talk! The greatest of therapists have done the work they're
