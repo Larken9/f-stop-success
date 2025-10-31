@@ -1580,7 +1580,10 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="rounded-2xl shadow-lg p-8 max-w-4xl mx-auto" style={{ backgroundColor: "#1a1a1a" }}>
+          <div
+            className="rounded-2xl shadow-lg p-8 max-w-4xl mx-auto"
+            style={{ backgroundColor: "#374151" }}
+          >
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
                 <div className="w-64 h-64 mx-auto mb-6 rounded-full overflow-hidden shadow-xl">
@@ -1594,7 +1597,10 @@ export default function HomePage() {
                 </div>
               </div>
               <div>
-                <h3 className="text-2xl font-bold mb-4" style={{ color: "#D1D5DB" }}>
+                <h3
+                  className="text-2xl font-bold mb-4"
+                  style={{ color: "#D1D5DB" }}
+                >
                   Kelly Gauthier
                 </h3>
                 <p className="mb-4" style={{ color: "#D1D5DB" }}>
@@ -1620,16 +1626,26 @@ export default function HomePage() {
                 </p>
                 <div className="flex items-center gap-4">
                   <div className="text-center">
-                    <div className="text-2xl font-bold" style={{ color: "#D1D5DB" }}>20+</div>
+                    <div
+                      className="text-2xl font-bold"
+                      style={{ color: "#D1D5DB" }}
+                    >
+                      20+
+                    </div>
                     <div className="text-sm" style={{ color: "#D1D5DB" }}>
                       Years Experience
                     </div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold" style={{ color: "#D1D5DB" }}>
+                    <div
+                      className="text-2xl font-bold"
+                      style={{ color: "#D1D5DB" }}
+                    >
                       1000+
                     </div>
-                    <div className="text-sm" style={{ color: "#D1D5DB" }}>Clients Helped</div>
+                    <div className="text-sm" style={{ color: "#D1D5DB" }}>
+                      Clients Helped
+                    </div>
                   </div>
                   <div className="text-center">
                     <div
@@ -1638,7 +1654,9 @@ export default function HomePage() {
                     >
                       $$$$$$
                     </div>
-                    <div className="text-sm" style={{ color: "#D1D5DB" }}>Income Achieved</div>
+                    <div className="text-sm" style={{ color: "#D1D5DB" }}>
+                      Income Achieved
+                    </div>
                   </div>
                 </div>
               </div>
