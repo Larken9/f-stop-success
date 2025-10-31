@@ -1299,13 +1299,13 @@ export default function HomePage() {
                     fontSize: "13px",
                   }}
                 >
-                  Help you grow both personally and
+                  Help you grow both personally and professionally
                   <br />
-                  professionally by learning how to apply PhotoTherapy
+                  by learning how to apply PhotoTherapy techniques
                   <br />
-                  techniques to your own life so you too can
+                  to your own life so you too can experience
                   <br />
-                  experience your own success story.
+                  your own success story.
                 </p>
               </div>
             </div>
