@@ -1458,20 +1458,20 @@ export default function HomePage() {
             <div className="grid md:grid-cols-2 gap-8">
               <div
                 className="p-6 rounded-2xl"
-                style={{ backgroundColor: "#4B5563" }}
+                style={{ backgroundColor: "#C0C0C0" }}
               >
                 <h4
                   className="font-medium text-lg mb-3"
                   style={{
                     fontFamily: "Cormorant Garamond, serif",
-                    color: "#3B82F6",
+                    color: "#4A7BA7",
                   }}
                 >
                   Universal Language
                 </h4>
                 <p
                   style={{
-                    color: "#3B82F6",
+                    color: "#4A7BA7",
                     fontFamily: "Inter, sans-serif",
                   }}
                 >
@@ -1482,20 +1482,20 @@ export default function HomePage() {
               </div>
               <div
                 className="p-6 rounded-2xl"
-                style={{ backgroundColor: "#4B5563" }}
+                style={{ backgroundColor: "#C0C0C0" }}
               >
                 <h4
                   className="font-medium text-lg mb-3"
                   style={{
                     fontFamily: "Cormorant Garamond, serif",
-                    color: "#3B82F6",
+                    color: "#4A7BA7",
                   }}
                 >
                   Unlock Repressed Emotions
                 </h4>
                 <p
                   style={{
-                    color: "#3B82F6",
+                    color: "#4A7BA7",
                     fontFamily: "Inter, sans-serif",
                   }}
                 >
@@ -1507,20 +1507,20 @@ export default function HomePage() {
               </div>
               <div
                 className="p-6 rounded-2xl"
-                style={{ backgroundColor: "#4B5563" }}
+                style={{ backgroundColor: "#C0C0C0" }}
               >
                 <h4
                   className="font-medium text-lg mb-3"
                   style={{
                     fontFamily: "Cormorant Garamond, serif",
-                    color: "#3B82F6",
+                    color: "#4A7BA7",
                   }}
                 >
                   Symbolic Communication
                 </h4>
                 <p
                   style={{
-                    color: "#3B82F6",
+                    color: "#4A7BA7",
                     fontFamily: "Inter, sans-serif",
                   }}
                 >
@@ -1530,20 +1530,20 @@ export default function HomePage() {
               </div>
               <div
                 className="p-6 rounded-2xl"
-                style={{ backgroundColor: "#4B5563" }}
+                style={{ backgroundColor: "#C0C0C0" }}
               >
                 <h4
                   className="font-medium text-lg mb-3"
                   style={{
                     fontFamily: "Cormorant Garamond, serif",
-                    color: "#3B82F6",
+                    color: "#4A7BA7",
                   }}
                 >
                   Personal Growth
                 </h4>
                 <p
                   style={{
-                    color: "#3B82F6",
+                    color: "#4A7BA7",
                     fontFamily: "Inter, sans-serif",
                   }}
                 >
@@ -1664,12 +1664,12 @@ export default function HomePage() {
 
             <div
               className="mt-8 p-6 rounded-xl"
-              style={{ backgroundColor: "#4B5563" }}
+              style={{ backgroundColor: "#C0C0C0" }}
             >
-              <h4 className="font-bold mb-3" style={{ color: "#3B82F6" }}>
+              <h4 className="font-bold mb-3" style={{ color: "#4A7BA7" }}>
                 Kelly's Philosophy:
               </h4>
-              <blockquote className="italic" style={{ color: "#3B82F6" }}>
+              <blockquote className="italic" style={{ color: "#4A7BA7" }}>
                 "For you to become the best at what you do, you need to be the
                 best at who you are first. You need to walk your PhotoTherapy
                 talk! The greatest of therapists have done the work they're
@@ -1788,7 +1788,7 @@ export default function HomePage() {
               <div
                 key={index}
                 className="rounded-2xl shadow-lg p-8"
-                style={{ backgroundColor: "#4B5563" }}
+                style={{ backgroundColor: "#C0C0C0" }}
               >
                 <div className="flex items-center justify-center mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
@@ -1798,12 +1798,12 @@ export default function HomePage() {
                     />
                   ))}
                 </div>
-                <p className="mb-6 italic" style={{ color: "#3B82F6" }}>
+                <p className="mb-6 italic" style={{ color: "#4A7BA7" }}>
                   "{testimonial.quote}"
                 </p>
                 <div className="text-center">
-                  <div className="font-bold" style={{ color: "#3B82F6" }}>{testimonial.name}</div>
-                  <div className="text-sm" style={{ color: "#3B82F6" }}>{testimonial.role}</div>
+                  <div className="font-bold" style={{ color: "#4A7BA7" }}>{testimonial.name}</div>
+                  <div className="text-sm" style={{ color: "#4A7BA7" }}>{testimonial.role}</div>
                 </div>
               </div>
             ))}
