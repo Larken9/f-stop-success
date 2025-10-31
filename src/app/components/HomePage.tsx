@@ -1421,7 +1421,7 @@ export default function HomePage() {
 
           <div
             className="rounded-3xl p-12"
-            style={{ backgroundColor: "#374151", color: "#FFFFFF" }}
+            style={{ backgroundColor: "#1a1a1a", color: "#FFFFFF" }}
           >
             <h3
               className="text-3xl font-light mb-12 text-center"
