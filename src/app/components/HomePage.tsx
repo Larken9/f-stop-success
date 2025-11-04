@@ -915,7 +915,7 @@ export default function HomePage() {
                 className="text-2xl font-light mb-4 text-center"
                 style={{
                   fontFamily: "Cormorant Garamond, serif",
-                  color: "#4A7BA7",
+                  color: "#2C5F8D",
                 }}
               >
                 Goals of Therapy in General
@@ -924,70 +924,70 @@ export default function HomePage() {
                 <li
                   className="flex items-start"
                   style={{
-                    color: "#4A7BA7",
+                    color: "#2C5F8D",
                     fontFamily: "Inter, sans-serif",
                     fontSize: "16px",
                   }}
                 >
                   <span
                     className="mr-3 mt-1.5 w-2 h-2 rounded-full flex-shrink-0"
-                    style={{ backgroundColor: "#4A7BA7" }}
+                    style={{ backgroundColor: "#2C5F8D" }}
                   ></span>
                   Reduce emotional distress
                 </li>
                 <li
                   className="flex items-start"
                   style={{
-                    color: "#4A7BA7",
+                    color: "#2C5F8D",
                     fontFamily: "Inter, sans-serif",
                     fontSize: "16px",
                   }}
                 >
                   <span
                     className="mr-3 mt-1.5 w-2 h-2 rounded-full flex-shrink-0"
-                    style={{ backgroundColor: "#4A7BA7" }}
+                    style={{ backgroundColor: "#2C5F8D" }}
                   ></span>
                   Develop healthy coping skills
                 </li>
                 <li
                   className="flex items-start"
                   style={{
-                    color: "#4A7BA7",
+                    color: "#2C5F8D",
                     fontFamily: "Inter, sans-serif",
                     fontSize: "16px",
                   }}
                 >
                   <span
                     className="mr-3 mt-1.5 w-2 h-2 rounded-full flex-shrink-0"
-                    style={{ backgroundColor: "#4A7BA7" }}
+                    style={{ backgroundColor: "#2C5F8D" }}
                   ></span>
                   Improve self-awareness
                 </li>
                 <li
                   className="flex items-start"
                   style={{
-                    color: "#4A7BA7",
+                    color: "#2C5F8D",
                     fontFamily: "Inter, sans-serif",
                     fontSize: "16px",
                   }}
                 >
                   <span
                     className="mr-3 mt-1.5 w-2 h-2 rounded-full flex-shrink-0"
-                    style={{ backgroundColor: "#4A7BA7" }}
+                    style={{ backgroundColor: "#2C5F8D" }}
                   ></span>
                   Change negative behaviors
                 </li>
                 <li
                   className="flex items-start"
                   style={{
-                    color: "#4A7BA7",
+                    color: "#2C5F8D",
                     fontFamily: "Inter, sans-serif",
                     fontSize: "16px",
                   }}
                 >
                   <span
                     className="mr-3 mt-1.5 w-2 h-2 rounded-full flex-shrink-0"
-                    style={{ backgroundColor: "#4A7BA7" }}
+                    style={{ backgroundColor: "#2C5F8D" }}
                   ></span>
                   Improve overall well-being & relations
                 </li>
@@ -1464,14 +1464,14 @@ export default function HomePage() {
                   className="font-medium text-lg mb-3"
                   style={{
                     fontFamily: "Cormorant Garamond, serif",
-                    color: "#4A7BA7",
+                    color: "#2C5F8D",
                   }}
                 >
                   Universal Language
                 </h4>
                 <p
                   style={{
-                    color: "#4A7BA7",
+                    color: "#2C5F8D",
                     fontFamily: "Inter, sans-serif",
                   }}
                 >
@@ -1488,14 +1488,14 @@ export default function HomePage() {
                   className="font-medium text-lg mb-3"
                   style={{
                     fontFamily: "Cormorant Garamond, serif",
-                    color: "#4A7BA7",
+                    color: "#2C5F8D",
                   }}
                 >
                   Unlock Repressed Emotions
                 </h4>
                 <p
                   style={{
-                    color: "#4A7BA7",
+                    color: "#2C5F8D",
                     fontFamily: "Inter, sans-serif",
                   }}
                 >
@@ -1513,14 +1513,14 @@ export default function HomePage() {
                   className="font-medium text-lg mb-3"
                   style={{
                     fontFamily: "Cormorant Garamond, serif",
-                    color: "#4A7BA7",
+                    color: "#2C5F8D",
                   }}
                 >
                   Symbolic Communication
                 </h4>
                 <p
                   style={{
-                    color: "#4A7BA7",
+                    color: "#2C5F8D",
                     fontFamily: "Inter, sans-serif",
                   }}
                 >
@@ -1536,14 +1536,14 @@ export default function HomePage() {
                   className="font-medium text-lg mb-3"
                   style={{
                     fontFamily: "Cormorant Garamond, serif",
-                    color: "#4A7BA7",
+                    color: "#2C5F8D",
                   }}
                 >
                   Personal Growth
                 </h4>
                 <p
                   style={{
-                    color: "#4A7BA7",
+                    color: "#2C5F8D",
                     fontFamily: "Inter, sans-serif",
                   }}
                 >
@@ -2018,7 +2018,9 @@ export default function HomePage() {
               </p>
               <div className="flex gap-4 mt-4">
                 <a
-                  href="#"
+                  href="https://www.instagram.com/fstoptosuccess/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-gray-900 transition-colors"
                 >
                   <span className="sr-only">Instagram</span>@
