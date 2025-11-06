@@ -179,58 +179,45 @@ export default function HomePage() {
             <div className="hidden md:flex items-center space-x-10">
               <a
                 href="/"
-                className="transition-all duration-300 font-medium relative group"
+                className="transition-all duration-300 font-medium relative group hover:text-gray-900"
                 style={{ color: "#666666", fontFamily: "Inter, sans-serif" }}
               >
                 Home
-                <span
-                  className="absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full"
-                  style={{ backgroundColor: "#1a1a1a" }}
-                ></span>
               </a>
               <a
                 href="#about"
-                className="transition-all duration-300 font-medium relative group"
+                className="transition-all duration-300 font-medium relative group hover:text-gray-900"
                 style={{ color: "#666666", fontFamily: "Inter, sans-serif" }}
               >
                 About
-                <span
-                  className="absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full"
-                  style={{ backgroundColor: "#1a1a1a" }}
-                ></span>
               </a>
               <a
                 href="/enroll"
-                className="transition-all duration-300 font-medium relative group"
+                className="transition-all duration-300 font-medium relative group hover:text-gray-900"
                 style={{ color: "#666666", fontFamily: "Inter, sans-serif" }}
               >
                 Enroll
-                <span
-                  className="absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full"
-                  style={{ backgroundColor: "#1a1a1a" }}
-                ></span>
+              </a>
+              <a
+                href="/workshop"
+                className="transition-all duration-300 font-medium relative group hover:text-gray-900"
+                style={{ color: "#666666", fontFamily: "Inter, sans-serif" }}
+              >
+                Workshop
               </a>
               <a
                 href="#instructor"
-                className="transition-all duration-300 font-medium relative group"
+                className="transition-all duration-300 font-medium relative group hover:text-gray-900"
                 style={{ color: "#666666", fontFamily: "Inter, sans-serif" }}
               >
                 Instructor
-                <span
-                  className="absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full"
-                  style={{ backgroundColor: "#1a1a1a" }}
-                ></span>
               </a>
               <a
                 href="#testimonials"
-                className="transition-all duration-300 font-medium relative group"
+                className="transition-all duration-300 font-medium relative group hover:text-gray-900"
                 style={{ color: "#666666", fontFamily: "Inter, sans-serif" }}
               >
                 Success Stories
-                <span
-                  className="absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full"
-                  style={{ backgroundColor: "#1a1a1a" }}
-                ></span>
               </a>
 
               {user ? (
@@ -312,6 +299,12 @@ export default function HomePage() {
                   className="text-slate-600 hover:text-sky-600 transition-colors px-3 py-2 rounded-lg hover:bg-slate-50"
                 >
                   Enroll
+                </a>
+                <a
+                  href="/workshop"
+                  className="text-slate-600 hover:text-sky-600 transition-colors px-3 py-2 rounded-lg hover:bg-slate-50"
+                >
+                  Workshop
                 </a>
                 <a
                   href="#instructor"
@@ -1900,7 +1893,7 @@ export default function HomePage() {
                 <li>
                   <a
                     href="#about"
-                    className="text-gray-600 hover:text-gray-900 transition-colors"
+                    className="text-gray-600 hover:text-gray-900 transition-colors no-underline"
                     style={{ fontFamily: "Inter, sans-serif" }}
                   >
                     About PhotoTherapy
@@ -1909,7 +1902,7 @@ export default function HomePage() {
                 <li>
                   <a
                     href="#instructor"
-                    className="text-gray-600 hover:text-gray-900 transition-colors"
+                    className="text-gray-600 hover:text-gray-900 transition-colors no-underline"
                     style={{ fontFamily: "Inter, sans-serif" }}
                   >
                     About the Instructor
@@ -1918,7 +1911,7 @@ export default function HomePage() {
                 <li>
                   <a
                     href="/courses"
-                    className="text-gray-600 hover:text-gray-900 transition-colors"
+                    className="text-gray-600 hover:text-gray-900 transition-colors no-underline"
                     style={{ fontFamily: "Inter, sans-serif" }}
                   >
                     Course Modules
@@ -1938,7 +1931,7 @@ export default function HomePage() {
                 <li>
                   <a
                     href="#"
-                    className="text-gray-600 hover:text-gray-900 transition-colors"
+                    className="text-gray-600 hover:text-gray-900 transition-colors no-underline"
                     style={{ fontFamily: "Inter, sans-serif" }}
                   >
                     Getting Started
@@ -1947,7 +1940,7 @@ export default function HomePage() {
                 <li>
                   <a
                     href="/dashboard"
-                    className="text-gray-600 hover:text-gray-900 transition-colors"
+                    className="text-gray-600 hover:text-gray-900 transition-colors no-underline"
                     style={{ fontFamily: "Inter, sans-serif" }}
                   >
                     Dashboard
@@ -1956,7 +1949,7 @@ export default function HomePage() {
                 <li>
                   <a
                     href="#"
-                    className="text-gray-600 hover:text-gray-900 transition-colors"
+                    className="text-gray-600 hover:text-gray-900 transition-colors no-underline"
                     style={{ fontFamily: "Inter, sans-serif" }}
                   >
                     Community
@@ -1976,7 +1969,7 @@ export default function HomePage() {
                 <li>
                   <a
                     href="#"
-                    className="text-gray-600 hover:text-gray-900 transition-colors"
+                    className="text-gray-600 hover:text-gray-900 transition-colors no-underline"
                     style={{ fontFamily: "Inter, sans-serif" }}
                   >
                     Help Center
@@ -1985,7 +1978,7 @@ export default function HomePage() {
                 <li>
                   <a
                     href="#"
-                    className="text-gray-600 hover:text-gray-900 transition-colors"
+                    className="text-gray-600 hover:text-gray-900 transition-colors no-underline"
                     style={{ fontFamily: "Inter, sans-serif" }}
                   >
                     Contact Us
@@ -1994,7 +1987,7 @@ export default function HomePage() {
                 <li>
                   <a
                     href="#"
-                    className="text-gray-600 hover:text-gray-900 transition-colors"
+                    className="text-gray-600 hover:text-gray-900 transition-colors no-underline"
                     style={{ fontFamily: "Inter, sans-serif" }}
                   >
                     FAQ
@@ -2040,7 +2033,7 @@ export default function HomePage() {
               </p>
               <a
                 href="#"
-                className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                className="text-sm text-gray-600 hover:text-gray-900 transition-colors no-underline"
                 style={{ fontFamily: "Inter, sans-serif" }}
               >
                 Privacy Policy
