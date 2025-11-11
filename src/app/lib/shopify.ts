@@ -92,3 +92,57 @@ export async function createCheckout(variantId: string, quantity: number) {
   const response = await ShopifyData(query);
   return response.data.checkoutCreate.checkout;
 }
+
+export async function subscribeToNewsletter(email: string) {
+  const query = `
+    mutation customerCreate($input: CustomerInput!) {
+      customerCreate(input: $input) {
+        customer {
+          id
+          email
+          acceptsMarketing
+        }
+        customerUserErrors {
+          code
+          field
+          message
+        }
+      }
+    }
+  `;
+
+  const variables = {
+    input: {
+      email: email,
+      acceptsMarketing: true,
+      tags: ["newsletter-subscriber", "website-signup"]
+    }
+  };
+
+  const URL = `https://${domain}/api/2024-01/graphql.json`;
+
+  const options = {
+    method: "POST",
+    headers: {
+      "X-Shopify-Storefront-Access-Token": storefrontAccessToken!,
+      "Accept": "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ query, variables }),
+  };
+
+  try {
+    const response = await fetch(URL, options);
+    const data = await response.json();
+
+    if (data.data?.customerCreate?.customerUserErrors?.length > 0) {
+      const error = data.data.customerCreate.customerUserErrors[0];
+      throw new Error(error.message);
+    }
+
+    return data.data.customerCreate.customer;
+  } catch (error) {
+    console.error("Newsletter subscription error:", error);
+    throw error;
+  }
+}

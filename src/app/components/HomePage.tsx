@@ -9,7 +9,6 @@ import {
   Users,
   Award,
   Heart,
-  Star,
   Menu,
   X,
 } from "lucide-react";
@@ -30,6 +29,12 @@ export default function HomePage() {
   const [currentImageSet, setCurrentImageSet] = useState(0);
   const [revealedImage1, setRevealedImage1] = useState(false);
   const [revealedImage2, setRevealedImage2] = useState(false);
+
+  // Newsletter subscription state
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [newsletterStatus, setNewsletterStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [newsletterMessage, setNewsletterMessage] = useState("");
+  const [privacyAccepted, setPrivacyAccepted] = useState(false);
 
   // Image sets data
   const imageSets = [
@@ -126,6 +131,51 @@ export default function HomePage() {
       setupAuthListener();
     }
   }, [mounted]);
+
+  // Newsletter subscription handler
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!privacyAccepted) {
+      setNewsletterStatus("error");
+      setNewsletterMessage("Please accept the privacy statement to continue.");
+      return;
+    }
+
+    if (!newsletterEmail || !newsletterEmail.includes("@")) {
+      setNewsletterStatus("error");
+      setNewsletterMessage("Please enter a valid email address.");
+      return;
+    }
+
+    setNewsletterStatus("loading");
+    setNewsletterMessage("");
+
+    try {
+      const response = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: newsletterEmail }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setNewsletterStatus("success");
+        setNewsletterMessage("🎉 Successfully subscribed! Check your email for updates.");
+        setNewsletterEmail("");
+        setPrivacyAccepted(false);
+      } else {
+        setNewsletterStatus("error");
+        setNewsletterMessage(data.error || "Failed to subscribe. Please try again.");
+      }
+    } catch (error) {
+      setNewsletterStatus("error");
+      setNewsletterMessage("An error occurred. Please try again later.");
+    }
+  };
 
   if (!mounted || loading) {
     return (
@@ -731,9 +781,10 @@ export default function HomePage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {/* Block 1: Struggling Client Text */}
                 <div
-                  className="rounded-2xl shadow-lg p-6 flex flex-col items-center justify-center text-center aspect-square"
+                  className="rounded-2xl p-6 flex flex-col items-center justify-center text-center aspect-square"
                   style={{
                     backgroundColor: "#374151",
+                    boxShadow: "0 10px 30px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(0, 0, 0, 0.2)",
                   }}
                 >
                   <h3
@@ -759,7 +810,18 @@ export default function HomePage() {
                 {/* Block 2: Struggling Client Image */}
                 <button
                   onClick={() => setRevealedImage1(!revealedImage1)}
-                  className="rounded-2xl shadow-lg overflow-hidden relative cursor-pointer hover:shadow-xl transition-shadow aspect-square"
+                  className="rounded-2xl overflow-hidden relative cursor-pointer transition-all aspect-square"
+                  style={{
+                    boxShadow: "0 10px 30px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(0, 0, 0, 0.2)",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.boxShadow = "0 15px 40px rgba(0, 0, 0, 0.4), 0 8px 20px rgba(0, 0, 0, 0.3)";
+                    e.currentTarget.style.transform = "translateY(-2px)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.boxShadow = "0 10px 30px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(0, 0, 0, 0.2)";
+                    e.currentTarget.style.transform = "translateY(0)";
+                  }}
                 >
                   {!revealedImage1 ? (
                     <div
@@ -791,9 +853,10 @@ export default function HomePage() {
 
                 {/* Block 3: Successful Session Text */}
                 <div
-                  className="rounded-2xl shadow-lg p-6 flex flex-col items-center justify-center text-center aspect-square"
+                  className="rounded-2xl p-6 flex flex-col items-center justify-center text-center aspect-square"
                   style={{
                     backgroundColor: "#374151",
+                    boxShadow: "0 10px 30px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(0, 0, 0, 0.2)",
                   }}
                 >
                   <h3
@@ -819,7 +882,18 @@ export default function HomePage() {
                 {/* Block 4: Successful Session Image */}
                 <button
                   onClick={() => setRevealedImage2(!revealedImage2)}
-                  className="rounded-2xl shadow-lg overflow-hidden relative cursor-pointer hover:shadow-xl transition-shadow aspect-square"
+                  className="rounded-2xl overflow-hidden relative cursor-pointer transition-all aspect-square"
+                  style={{
+                    boxShadow: "0 10px 30px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(0, 0, 0, 0.2)",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.boxShadow = "0 15px 40px rgba(0, 0, 0, 0.4), 0 8px 20px rgba(0, 0, 0, 0.3)";
+                    e.currentTarget.style.transform = "translateY(-2px)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.boxShadow = "0 10px 30px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(0, 0, 0, 0.2)";
+                    e.currentTarget.style.transform = "translateY(0)";
+                  }}
                 >
                   {!revealedImage2 ? (
                     <div
@@ -895,17 +969,33 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-12 mb-20 items-center">
-            {/* Left Column - Goals of Therapy in General */}
-            <div
-              className="p-6 rounded-3xl h-full flex flex-col justify-center"
-              style={{
-                backgroundColor: "#C0C0C0",
-                boxShadow: "0 10px 30px rgba(192, 192, 192, 0.4)",
-              }}
-            >
+          {/* Image Left, Two Boxes Right Stacked */}
+          <div className="grid md:grid-cols-2 gap-10 mb-20 items-center max-w-6xl mx-auto">
+            {/* Left Side - Image */}
+            <div className="relative overflow-hidden rounded-lg shadow-xl">
+              <Image
+                src="/images/reflection.jpg"
+                alt="PhotoTherapy session demonstration"
+                width={500}
+                height={550}
+                className="object-cover w-full"
+                style={{ maxHeight: "550px" }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+            </div>
+
+            {/* Right Side - Two Boxes Stacked */}
+            <div className="flex flex-col gap-6">
+              {/* Top Box - Goals of Therapy in General */}
+              <div
+                className="px-7 py-6 rounded-2xl"
+                style={{
+                  backgroundColor: "#C0C0C0",
+                  boxShadow: "0 10px 30px rgba(192, 192, 192, 0.4)",
+                }}
+              >
               <h3
-                className="text-2xl font-light mb-4 text-center"
+                className="text-xl font-light mb-4 text-center"
                 style={{
                   fontFamily: "Cormorant Garamond, serif",
                   color: "#2C5F8D",
@@ -913,13 +1003,13 @@ export default function HomePage() {
               >
                 Goals of Therapy in General
               </h3>
-              <ul className="space-y-3">
+              <ul className="space-y-2">
                 <li
                   className="flex items-start"
                   style={{
                     color: "#2C5F8D",
                     fontFamily: "Inter, sans-serif",
-                    fontSize: "16px",
+                    fontSize: "15px",
                   }}
                 >
                   <span
@@ -933,7 +1023,7 @@ export default function HomePage() {
                   style={{
                     color: "#2C5F8D",
                     fontFamily: "Inter, sans-serif",
-                    fontSize: "16px",
+                    fontSize: "15px",
                   }}
                 >
                   <span
@@ -947,7 +1037,7 @@ export default function HomePage() {
                   style={{
                     color: "#2C5F8D",
                     fontFamily: "Inter, sans-serif",
-                    fontSize: "16px",
+                    fontSize: "15px",
                   }}
                 >
                   <span
@@ -961,7 +1051,7 @@ export default function HomePage() {
                   style={{
                     color: "#2C5F8D",
                     fontFamily: "Inter, sans-serif",
-                    fontSize: "16px",
+                    fontSize: "15px",
                   }}
                 >
                   <span
@@ -975,7 +1065,7 @@ export default function HomePage() {
                   style={{
                     color: "#2C5F8D",
                     fontFamily: "Inter, sans-serif",
-                    fontSize: "16px",
+                    fontSize: "15px",
                   }}
                 >
                   <span
@@ -985,30 +1075,18 @@ export default function HomePage() {
                   Improve overall well-being & relations
                 </li>
               </ul>
-            </div>
+              </div>
 
-            {/* Center Column - Image */}
-            <div className="relative overflow-hidden rounded-3xl shadow-xl h-full">
-              <Image
-                src="/images/reflection.jpg"
-                alt="PhotoTherapy session demonstration"
-                width={400}
-                height={600}
-                className="object-cover w-full h-full"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-            </div>
-
-            {/* Right Column - Goals of PhotoTherapy & This Course */}
-            <div
-              className="p-6 rounded-3xl h-full flex flex-col justify-center"
-              style={{
-                backgroundColor: "#374151",
-                boxShadow: "0 10px 30px rgba(55, 65, 81, 0.2)",
-              }}
-            >
+              {/* Bottom Box - Goals of PhotoTherapy & This Course */}
+              <div
+                className="px-7 py-6 rounded-2xl"
+                style={{
+                  backgroundColor: "#374151",
+                  boxShadow: "0 10px 30px rgba(55, 65, 81, 0.2)",
+                }}
+              >
               <h3
-                className="text-2xl font-light mb-4 text-center"
+                className="text-xl font-light mb-4 text-center"
                 style={{
                   fontFamily: "Cormorant Garamond, serif",
                   color: "white",
@@ -1016,13 +1094,13 @@ export default function HomePage() {
               >
                 Goals of PhotoTherapy & This Course
               </h3>
-              <ul className="space-y-3">
+              <ul className="space-y-2">
                 <li
                   className="flex items-start"
                   style={{
                     color: "rgba(255, 255, 255, 0.9)",
                     fontFamily: "Inter, sans-serif",
-                    fontSize: "16px",
+                    fontSize: "15px",
                   }}
                 >
                   <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-gray-300 flex-shrink-0"></span>
@@ -1033,7 +1111,7 @@ export default function HomePage() {
                   style={{
                     color: "rgba(255, 255, 255, 0.9)",
                     fontFamily: "Inter, sans-serif",
-                    fontSize: "16px",
+                    fontSize: "15px",
                   }}
                 >
                   <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-gray-300 flex-shrink-0"></span>
@@ -1045,7 +1123,7 @@ export default function HomePage() {
                   style={{
                     color: "rgba(255, 255, 255, 0.9)",
                     fontFamily: "Inter, sans-serif",
-                    fontSize: "16px",
+                    fontSize: "15px",
                   }}
                 >
                   <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-gray-300 flex-shrink-0"></span>
@@ -1056,7 +1134,7 @@ export default function HomePage() {
                   style={{
                     color: "rgba(255, 255, 255, 0.9)",
                     fontFamily: "Inter, sans-serif",
-                    fontSize: "16px",
+                    fontSize: "15px",
                   }}
                 >
                   <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-gray-300 flex-shrink-0"></span>
@@ -1067,13 +1145,14 @@ export default function HomePage() {
                   style={{
                     color: "rgba(255, 255, 255, 0.9)",
                     fontFamily: "Inter, sans-serif",
-                    fontSize: "16px",
+                    fontSize: "15px",
                   }}
                 >
                   <span className="mr-3 mt-1.5 w-2 h-2 rounded-full bg-gray-300 flex-shrink-0"></span>
                   Improve the overall therapeutic experience and outcome
                 </li>
               </ul>
+              </div>
             </div>
           </div>
 
@@ -1454,7 +1533,7 @@ export default function HomePage() {
                 style={{ backgroundColor: "#C0C0C0" }}
               >
                 <h4
-                  className="font-medium text-lg mb-3"
+                  className="font-bold text-lg mb-3"
                   style={{
                     fontFamily: "Cormorant Garamond, serif",
                     color: "#2C5F8D",
@@ -1478,7 +1557,7 @@ export default function HomePage() {
                 style={{ backgroundColor: "#C0C0C0" }}
               >
                 <h4
-                  className="font-medium text-lg mb-3"
+                  className="font-bold text-lg mb-3"
                   style={{
                     fontFamily: "Cormorant Garamond, serif",
                     color: "#2C5F8D",
@@ -1503,7 +1582,7 @@ export default function HomePage() {
                 style={{ backgroundColor: "#C0C0C0" }}
               >
                 <h4
-                  className="font-medium text-lg mb-3"
+                  className="font-bold text-lg mb-3"
                   style={{
                     fontFamily: "Cormorant Garamond, serif",
                     color: "#2C5F8D",
@@ -1526,7 +1605,7 @@ export default function HomePage() {
                 style={{ backgroundColor: "#C0C0C0" }}
               >
                 <h4
-                  className="font-medium text-lg mb-3"
+                  className="font-bold text-lg mb-3"
                   style={{
                     fontFamily: "Cormorant Garamond, serif",
                     color: "#2C5F8D",
@@ -1780,15 +1859,23 @@ export default function HomePage() {
             ].map((testimonial, index) => (
               <div
                 key={index}
-                className="rounded-2xl shadow-lg p-8"
-                style={{ backgroundColor: "#C0C0C0" }}
+                className="rounded-lg p-8"
+                style={{
+                  backgroundColor: "#C0C0C0",
+                  boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.1)"
+                }}
               >
                 <div className="flex items-center justify-center mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star
+                    <svg
                       key={i}
-                      className="h-5 w-5 text-yellow-400 fill-current"
-                    />
+                      className="h-5 w-5"
+                      viewBox="0 0 20 20"
+                      fill="#F59E0B"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M10 0L12.2451 6.90983H19.5106L13.6327 11.1803L15.8779 18.0902L10 13.8197L4.12215 18.0902L6.36729 11.1803L0.489435 6.90983H7.75486L10 0Z" />
+                    </svg>
                   ))}
                 </div>
                 <p className="mb-6 italic" style={{ color: "#4A7BA7" }}>
@@ -1851,23 +1938,34 @@ export default function HomePage() {
             >
               PhotoTherapy Insights in Your Mailbox
             </h3>
-            <form className="flex flex-col sm:flex-row gap-3 max-w-md">
+            <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md">
               <input
                 type="email"
                 placeholder="your@email.com"
-                className="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400"
+                value={newsletterEmail}
+                onChange={(e) => setNewsletterEmail(e.target.value)}
+                disabled={newsletterStatus === "loading"}
+                className="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 disabled:bg-gray-100 disabled:cursor-not-allowed"
                 style={{ fontFamily: "Inter, sans-serif" }}
+                required
               />
               <button
                 type="submit"
-                className="bg-gray-800 text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-900 transition-colors"
+                disabled={newsletterStatus === "loading"}
+                className="bg-gray-800 text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-900 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
                 style={{ fontFamily: "Inter, sans-serif" }}
               >
-                Subscribe
+                {newsletterStatus === "loading" ? "Subscribing..." : "Subscribe"}
               </button>
             </form>
             <div className="flex items-start gap-2 mt-3">
-              <input type="checkbox" id="privacy" className="mt-1" />
+              <input
+                type="checkbox"
+                id="privacy"
+                checked={privacyAccepted}
+                onChange={(e) => setPrivacyAccepted(e.target.checked)}
+                className="mt-1"
+              />
               <label
                 htmlFor="privacy"
                 className="text-sm text-gray-600"
@@ -1876,6 +1974,18 @@ export default function HomePage() {
                 I agree to the privacy statement
               </label>
             </div>
+            {newsletterMessage && (
+              <div
+                className={`mt-3 p-3 rounded-lg text-sm ${
+                  newsletterStatus === "success"
+                    ? "bg-green-50 text-green-800 border border-green-200"
+                    : "bg-red-50 text-red-800 border border-red-200"
+                }`}
+                style={{ fontFamily: "Inter, sans-serif" }}
+              >
+                {newsletterMessage}
+              </div>
+            )}
           </div>
 
           <hr className="border-gray-300 mb-8" />

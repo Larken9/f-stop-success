@@ -248,10 +248,6 @@ export default function EnrollPage() {
                   >
                     {enrolling ? "Processing..." : "Enroll Now"}
                   </button>
-
-                  <p className="text-center text-sm text-gray-500 mt-4" style={{ fontFamily: "Inter, sans-serif" }}>
-                    30-day money-back guarantee
-                  </p>
                 </div>
               </div>
 
