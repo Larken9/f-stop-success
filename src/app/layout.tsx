@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import StructuredData from "./components/StructuredData";
+import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -101,6 +102,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${cormorantGaramond.variable} antialiased`}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );

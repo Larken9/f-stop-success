@@ -73,14 +73,14 @@ export async function getProduct(productId: string) {
 export async function createCheckout(variantId: string, quantity: number) {
   const query = `
     mutation {
-      checkoutCreate(input: {
-        lineItems: [{ variantId: "${variantId}", quantity: ${quantity} }]
+      cartCreate(input: {
+        lines: [{ merchandiseId: "${variantId}", quantity: ${quantity} }]
       }) {
-        checkout {
+        cart {
           id
-          webUrl
+          checkoutUrl
         }
-        checkoutUserErrors {
+        userErrors {
           code
           field
           message
@@ -90,7 +90,28 @@ export async function createCheckout(variantId: string, quantity: number) {
   `;
 
   const response = await ShopifyData(query);
-  return response.data.checkoutCreate.checkout;
+  console.log('Cart creation response:', response);
+
+  if (response.errors) {
+    console.error('GraphQL errors:', response.errors);
+    throw new Error(response.errors[0]?.message || 'Failed to create cart');
+  }
+
+  if (response.data?.cartCreate?.userErrors?.length > 0) {
+    const error = response.data.cartCreate.userErrors[0];
+    console.error('Cart user errors:', error);
+    throw new Error(error.message);
+  }
+
+  if (!response.data?.cartCreate?.cart) {
+    console.error('No cart in response:', response);
+    throw new Error('Failed to create cart - no cart returned');
+  }
+
+  return {
+    id: response.data.cartCreate.cart.id,
+    webUrl: response.data.cartCreate.cart.checkoutUrl
+  };
 }
 
 export async function subscribeToNewsletter(email: string) {
