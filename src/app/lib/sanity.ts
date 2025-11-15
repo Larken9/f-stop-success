@@ -5,7 +5,7 @@ export const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET!,
   useCdn: false, // Set to false if statically generating pages, using ISR or tag-based revalidation
-  apiVersion: "2023-05-03",
+  apiVersion: "2024-01-01",
   token: process.env.SANITY_API_TOKEN || undefined, // Only if you want to update content with the client
 });
 
@@ -15,7 +15,7 @@ export const writeClient = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET!,
   useCdn: false,
-  apiVersion: "2023-05-03",
+  apiVersion: "2024-01-01",
   token: process.env.SANITY_API_TOKEN || undefined,
   ignoreBrowserTokenWarning: true, // Suppress warnings in development
 });
