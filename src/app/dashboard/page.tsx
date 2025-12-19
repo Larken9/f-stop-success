@@ -3,8 +3,7 @@ import { useState, useEffect } from "react";
 import { Camera, LogOut, CheckCircle, Play } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { client } from "../lib/sanity";
-import { courseQueries, courseMutations } from "../lib/sanity";
+import { courseMutations } from "../lib/sanity";
 import EnrollmentGuard from "../components/EnrollmentGuard";
 
 // Define types matching your Sanity schemas
@@ -154,7 +153,7 @@ export default function Dashboard() {
     }
   }, [mounted]);
 
-  // Fetch course data and user progress from Sanity
+  // Fetch course data and user progress via server-side API
   useEffect(() => {
     const fetchCourseData = async () => {
       if (!user) {
@@ -163,15 +162,15 @@ export default function Dashboard() {
       }
 
       try {
-        // First, let's test basic Sanity connection
-        console.log("Testing Sanity connection...");
-        const testQuery = '*[_type == "course"]';
-        const allCourses = await client.fetch(testQuery);
-        console.log("All courses found:", allCourses);
+        // Fetch course data from server-side API
+        console.log("Fetching course data from API...");
+        const courseResponse = await fetch('/api/course');
 
-        // Fetch the F-Stop to Success course with modules and lessons
-        const courseQuery = courseQueries.getFStopCourse();
-        const courseData = await client.fetch(courseQuery);
+        if (!courseResponse.ok) {
+          throw new Error(`Failed to fetch course: ${courseResponse.statusText}`);
+        }
+
+        const courseData = await courseResponse.json();
         console.log("F-Stop course data:", courseData);
 
         if (!courseData) {
@@ -184,12 +183,16 @@ export default function Dashboard() {
 
         setCourse(courseData);
 
-        // Fetch or create user progress
-        const progressQuery = courseQueries.getUserProgress(
-          user.uid,
-          courseData._id
+        // Fetch user progress from server-side API
+        const progressResponse = await fetch(
+          `/api/user-progress?userId=${user.uid}&courseId=${courseData._id}`
         );
-        const progressData = await client.fetch(progressQuery);
+
+        if (!progressResponse.ok) {
+          throw new Error(`Failed to fetch progress: ${progressResponse.statusText}`);
+        }
+
+        const progressData = await progressResponse.json();
         console.log("Progress data:", progressData);
 
         if (!progressData) {
