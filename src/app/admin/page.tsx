@@ -40,14 +40,29 @@ export default function AdminDashboard() {
         userService.getUserStats()
       ]);
 
-      // Get users from the 'users' collection
-      const usersData = usersSnapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data()
-      })) as User[];
+      // Create a map of enrollment data for easy lookup
+      const enrollmentMap = new Map();
+      enrollmentsSnapshot.docs.forEach(doc => {
+        enrollmentMap.set(doc.id, doc.data());
+      });
 
-      // Get all user IDs from userEnrollments collection
-      const enrollmentUserIds = new Set(enrollmentsSnapshot.docs.map(doc => doc.id));
+      // Get users from the 'users' collection and enrich with enrollment data
+      const usersData = usersSnapshot.docs.map(doc => {
+        const userData = doc.data();
+        const enrollmentData = enrollmentMap.get(doc.id);
+
+        return {
+          id: doc.id,
+          email: userData.email || enrollmentData?.email || 'Unknown',
+          displayName: userData.displayName || enrollmentData?.displayName || 'No name',
+          role: userData.role || 'user',
+          enrolled: userData.enrolled || enrollmentData?.roles?.includes('enrolled') || false,
+          enrolledAt: userData.enrolledAt,
+          createdAt: userData.createdAt,
+          lastLoginAt: userData.lastLoginAt,
+        } as User;
+      });
+
       const existingUserIds = new Set(usersData.map(u => u.id));
 
       // Find users that exist in userEnrollments but not in users collection
