@@ -34,17 +34,41 @@ export default function AdminDashboard() {
   const fetchData = async () => {
     try {
       setLoading(true);
-      const [usersSnapshot, userStats] = await Promise.all([
+      const [usersSnapshot, enrollmentsSnapshot, userStats] = await Promise.all([
         getDocs(collection(db, 'users')),
+        getDocs(collection(db, 'userEnrollments')),
         userService.getUserStats()
       ]);
-      
+
+      // Get users from the 'users' collection
       const usersData = usersSnapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data()
       })) as User[];
-      
-      setUsers(usersData);
+
+      // Get all user IDs from userEnrollments collection
+      const enrollmentUserIds = new Set(enrollmentsSnapshot.docs.map(doc => doc.id));
+      const existingUserIds = new Set(usersData.map(u => u.id));
+
+      // Find users that exist in userEnrollments but not in users collection
+      const missingUsers: User[] = [];
+      enrollmentsSnapshot.docs.forEach(doc => {
+        if (!existingUserIds.has(doc.id)) {
+          const enrollmentData = doc.data();
+          missingUsers.push({
+            id: doc.id,
+            email: enrollmentData.email || 'Unknown',
+            displayName: enrollmentData.displayName || 'Unknown User',
+            role: 'user',
+            enrolled: enrollmentData.roles?.includes('enrolled') || false,
+          });
+        }
+      });
+
+      // Merge both lists
+      const allUsers = [...usersData, ...missingUsers];
+
+      setUsers(allUsers);
       setStats(userStats);
     } catch (error) {
       console.error('Error fetching data:', error);
