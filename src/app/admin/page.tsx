@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 import { collection, getDocs, doc, updateDoc, deleteDoc } from 'firebase/firestore';
 import { db } from '@/app/lib/firebase';
 import { userService, UserStats } from '@/app/lib/user-service';
+import { userEnrollmentService } from '@/app/lib/user-enrollment';
 import { Shield, UserPlus, UserCheck, UserX, TrendingUp, Users, BookOpen, Calendar } from 'lucide-react';
 
 interface User {
@@ -67,7 +68,25 @@ export default function AdminDashboard() {
 
   const updateUserEnrollment = async (userId: string, enrolled: boolean) => {
     try {
+      // Update the users collection (for admin dashboard display)
       await userService.updateEnrollment(userId, enrolled);
+
+      // Also update the userEnrollments collection (for actual course access)
+      if (enrolled) {
+        const userData = users.find(u => u.id === userId);
+        if (userData) {
+          // Initialize user if needed, then enroll them
+          await userEnrollmentService.quickEnroll(userId, userData.email, userData.displayName || null);
+        }
+      } else {
+        // Unenroll: remove the 'enrolled' role and set status to 'inactive'
+        const enrollment = await userEnrollmentService.getUserEnrollment(userId);
+        if (enrollment) {
+          await userEnrollmentService.removeUserRole(userId, 'enrolled');
+          await userEnrollmentService.updateUserEnrollment(userId, { status: 'inactive' });
+        }
+      }
+
       fetchData();
     } catch (error) {
       console.error('Error updating enrollment:', error);
